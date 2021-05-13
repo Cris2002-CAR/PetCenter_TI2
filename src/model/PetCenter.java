@@ -2,14 +2,42 @@ package model;
 
 public class PetCenter{
 
+	/**
+
+	*/
 	public final int MAX_VETERINARIES = 7;
+
+	/**
+
+	*/
 	public final int MAX_ATTENDED_PETS = 120;
+
+	/**
+
+	*/
 	private int numVeterinaries;
+
+	/**
+
+	*/
 	private int numPets;
 
+	/**
+
+	*/
 	private Veterinary[] veterinaries;
+
+	/**
+
+	*/
 	private Pet[] pets;
 
+	///////////////////////Method Constructs
+
+	/**
+	*
+	*
+	*/
 	public PetCenter(){
 
 		veterinaries = new Veterinary[MAX_VETERINARIES];
@@ -19,28 +47,57 @@ public class PetCenter{
 
 	}
 	//////////////////Gets
+
+	/**
+	*
+	*
+	*@return
+	*/
 	public Veterinary[] getVeterinaries(){
 
 		return veterinaries;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public Pet[] getPets(){
 
 		return pets;
 	}
 
 	////////////////////Sets
+
+	/**
+	*
+	*
+	*@param
+	*/
 	public void setVeterinaries(Veterinary[] veterinaries){
 
 		this.veterinaries = veterinaries;
 	}
 
+	/**
+	*
+	*
+	*@param
+	*/
 	public void setPet(Pet[] pets){
 
 		this.pets = pets;
 	}
 
 	////////////////////Methods
+
+	/**
+	*
+	*
+	*@param
+	*@return
+	*/
 	public boolean addVeterinary(String id, String name, String lastname, String uniqueNumber){
 
 		boolean find = false;
@@ -66,6 +123,11 @@ public class PetCenter{
 
 	}
 
+	/**
+	*
+	*
+	*@param
+	*/
 	public void deleteVeterinary(String uniqueNumber){
 
 		boolean find = false;
@@ -94,6 +156,12 @@ public class PetCenter{
 		}
 	}
 
+	/**
+	*
+	*
+	*@param
+	*@return
+	*/
 	public boolean addPet(String specie, String name, String age, String race, String symptoms, 
 		Priority priority, Status status, String nameOwn, String idOwn, String phoneOwn, String addressOwn){
 
@@ -120,6 +188,11 @@ public class PetCenter{
 		}
 	}
 
+	/**
+	*
+	*
+	*@param
+	*/
 	public void removePet(String name, String nameOwn){
 
 		boolean find = false;
@@ -141,6 +214,12 @@ public class PetCenter{
 
 	}
 
+	/**
+	*
+	*
+	*@param
+	*@return
+	*/
 	public int valuePriority(Priority priority){
 
 		if(Priority.RED == priority){
@@ -166,6 +245,11 @@ public class PetCenter{
 		return 0;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public Pet findNextPet(){
 
 		Pet nexPet = null;
@@ -191,6 +275,11 @@ public class PetCenter{
 		return nexPet;
 	}
 
+	/**
+	*
+	*
+	*@param
+	*/
 	public void startConsultation(String id){
 		
 		boolean find = false;
@@ -232,6 +321,12 @@ public class PetCenter{
 
 	}
 
+	/**
+	*
+	*
+	*@param
+	*@return
+	*/
 	public Pet findPetByVeterinary(Veterinary veterinary){
 
 		Pet pet = null;
@@ -246,6 +341,11 @@ public class PetCenter{
 		return pet;
 	}
 
+	/**
+	*
+	*
+	*@param
+	*/
 	public void endConsultation(String id, String namePet, Status status){
 
 		boolean find = false;
@@ -280,6 +380,11 @@ public class PetCenter{
 		}
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public int notAttendedPets(){
 
 		int notAttend = 0;
@@ -294,6 +399,11 @@ public class PetCenter{
 		return notAttend;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public boolean checkNotWaitingPets(){
 
 		boolean check = false;
@@ -308,6 +418,11 @@ public class PetCenter{
 		return check;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public String veterinaryMostAttendPets(){
 
 		int attends[] = new int[numVeterinaries];
@@ -343,6 +458,11 @@ public class PetCenter{
 
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public int[] attendsPetsForPriority(){
 
 		int priorities[] = new int[5];
@@ -370,6 +490,11 @@ public class PetCenter{
 
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public double notAttendPercentage(){
 
 		int notAttend = 0;
@@ -386,6 +511,10 @@ public class PetCenter{
 		return percentage;
 	}
 
+	/**
+	*
+	*
+	*/
 	public void deleteAttendedPets(){
 
 		pets = new Pet[MAX_ATTENDED_PETS];

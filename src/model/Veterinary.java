@@ -2,12 +2,38 @@ package model;
 
 public class Veterinary{
 
+	/**
+
+	*/
 	private String id;
+
+	/**
+
+	*/
 	private String name;
+
+	/**
+
+	*/
 	private String lastname;
+
+	/**
+
+	*/
 	private String uniqueNumber;
+
+	/**
+
+	*/
 	private boolean available;
 
+	/////////////////Method constructs
+
+	/**
+	*
+	*
+	*@param
+	*/
 	public Veterinary(String id, String name, String lastname, String uniqueNumber){
 
 		this.id = id;
@@ -20,26 +46,51 @@ public class Veterinary{
 
 	/////////////////////Gets
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public String getId(){
 
 		return id; 
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public String getName(){
 
 		return name;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public String getLastname(){
 
 		return lastname;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public String getUniqueNumber(){
 
 		return uniqueNumber;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public boolean getAvailable(){
 
 		return available;

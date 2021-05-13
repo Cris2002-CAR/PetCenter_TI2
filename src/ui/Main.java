@@ -18,12 +18,12 @@ public class Main{
 	private Scanner reader = new Scanner(System.in);
 
 	/**
-	
+	Relationship with the main class of the model (center) to connect the main class
 	*/
 	private PetCenter center;
 
 	/**
-	
+	Global data type boolean to close the menu with the condition required by the program.
 	*/
 	private boolean continued = true;
 
@@ -36,8 +36,8 @@ public class Main{
 
 	 /**
 	 *In this method the user will be able to enter a menu, where he must choose what to do in the program.
+	 *The global boolean variable is used to close the program when the user is able to do so.
 	 */
-
 	 public void Menu(){
 
 	 	int option;
@@ -109,11 +109,8 @@ public class Main{
 
 	 /**
 	 *This method allows the user to add a veterinarian
-	 *
-	 *@param
-	 *@return 
+	 *The relationship center is used to pass the veterinarian's data
 	 */
-
 	 public void addVeterinary(){
 
 	 	System.out.println("Por favor ingrese la informacion personal del veterinario: ");
@@ -146,9 +143,9 @@ public class Main{
 	 }
 
 	 /**
-	 *
+	 *This method will allow the user to delete a veterinarian if the conditions for doing so are met.
+	 *The center relationship is used to pass the unique number of the veterinarian, which will be used to eliminate the veterinarian.
 	 */
-
 	 public void deleteVeterinary(){
 
 	 	System.out.println("Por favor ingrese el numero unico del veterinario que desea eliminar: ");
@@ -161,9 +158,9 @@ public class Main{
 	 }
 
 	 /**
-	 *
+	 *This method allows the user to register a pet and its owner.
+	 *The center relationship is used to pass all the owner and pet data, and create the object
 	 */
-
 	 public void addPetandOwner(){
 
 	 	System.out.println("Por favor ingrese los datos de la mascota que desea agregar: ");
@@ -257,9 +254,9 @@ public class Main{
 	 }
 
 	 /**
+	 *This method will allow the user to take a pet out of the center. 
 	 *
 	 */
-
 	 public void removePet(){
 
 	 	System.out.println("Por favor ingrese el nombre de la mascota: ");
@@ -276,8 +273,9 @@ public class Main{
 	 }
 
 	 /**
+	 *
+	 *	
 	 */
-
 	 public void startConsultation(){
 
 	 	System.out.println("Por favor ingrese el cedula del veterinario: ");
@@ -289,8 +287,9 @@ public class Main{
 	 }
 
 	 /**
+	 *
+	 *
 	 */
-
 	 public void endConsultation(){
 
 	 	System.out.println("Por favor ingrese la cedula del veterinario: ");
@@ -328,6 +327,8 @@ public class Main{
 	 }
 
 	 /**
+	 *
+	 *
 	 */
 	 public void endDayReports(){
 	 	boolean check = center.checkNotWaitingPets();
@@ -344,16 +345,28 @@ public class Main{
 	 	}
 	 }
 
+	 /**
+	 *
+	 *
+	 */
 	 public void notAttendedPets(){
 
 	 	System.out.println("El numero de mascotas que no han sido atendidas es: "+center.notAttendedPets());
 	 }
 
+	 /**
+	 *
+	 *
+	 */
 	 public void veterinaryMostAttendPets(){
 
 	 	System.out.println("El veterinario con mayor numero de consultas es: "+center.veterinaryMostAttendPets());
 	 }
 
+	 /**
+	 *
+	 *
+	 */
 	 public void attendsPetsForPriority(){
 
 	 	int priorities[] = center.attendsPetsForPriority();
@@ -365,11 +378,19 @@ public class Main{
 	 	System.out.println("Hay "+priorities[4]+" mascotas con prioridad azul");
 	 }
 
+	 /**
+	 *
+	 *
+	 */
 	 public void notAttendPercentage(){
 
 	 	System.out.println("El porcentaje de mascotas que salieron sin ser atendidas es: "+center.notAttendPercentage()+"%");
 	 }
 
+	 /**
+	 *
+	 *
+	 */
 	 public void deleteAttendedPets(){
 
 	 	center.deleteAttendedPets();

@@ -2,20 +2,60 @@ package model;
 
 public class Pet{
 
+	/**
+
+	*/
 	private String specie;
+
+	/**
+
+	*/
 	private String name;
+
+	/**
+
+	*/
 	private String age;
+
+	/**
+
+	*/
 	private String race;
+
+	/**
+
+	*/
 	private String symptoms;
 
 	//////////////relations
-	
+
+	/**
+
+	*/
 	private Priority priority;
+
+	/**
+
+	*/
 	private Status status;
+
+	/**
+
+	*/
 	private Owner owner;
+
+	/**
+
+	*/
 	private Veterinary attend;
 
-	////////////////////Constructor
+	////////////////////Method Constructs
+
+	/**
+	*
+	*
+	*@param
+	*/
 	public Pet(String specie, String name, String age, String race, String symptoms, Owner owner, 
 		Priority priority, Status status){
 
@@ -31,46 +71,92 @@ public class Pet{
 	}
 
 	////////////////////////Gets
+
+	/**
+	*
+	*
+	*@return
+	*/
 	public String getSpecie(){
 
 		return specie;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public String getName(){
 
 		return name;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public String getAge(){
 
 		return age;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public String getRace(){
 
 		return race;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public String getSymptoms(){
 
 		return symptoms;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public Priority getPriority(){
 
 		return priority;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public Status getStatus(){
 
 		return status;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public Owner getOwner(){
 
 		return owner;
 	}
 
+	/**
+	*
+	*
+	*@return
+	*/
 	public Veterinary getAttend(){
 
 		return attend;
