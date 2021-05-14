@@ -273,17 +273,10 @@ public class PetCenter{
 		int priority1=0;
 		int priority2=0;
 
-		boolean find = false;
+		if(pets[0] != null){
 
-		for(int i = 0; i>pets.length && !find; i++){
-			if(pets[i] != null){
-				if(pets[i].getStatus() == Status.WAITING){
-					nexPet = pets[i];
-					find = true;	
-				}
-			}
+			nexPet = pets[0];
 		}
-		
 
 		for(int i=1; i<pets.length; i++){
 			if(pets[i] != null){
@@ -293,7 +286,7 @@ public class PetCenter{
 					if(priority2 > priority1){
 						nexPet = pets[i];
 					}
-				} 
+				}				
 			}	
 		}
 		return nexPet;
@@ -539,30 +532,6 @@ public class PetCenter{
 
 		pets = new Pet[MAX_ATTENDED_PETS];
 	}
-
-	public void mostrarVeterinarios(){
-
-		for (int i=0;i<numVeterinaries; i++){
-
-			System.out.println(veterinaries[i].getName());
-			System.out.println(veterinaries[i].getId());
-			System.out.println(veterinaries[i].getUniqueNumber());
-			
-		}
-
-	}
-
-	public void mostrarMascotas(){
-
-		for(int i=0; i<numPets; i++){
-
-			System.out.println(pets[i].getName());
-			System.out.println(pets[i].getStatus());
-		}
-	}
-
-
-	
 
 	
 }

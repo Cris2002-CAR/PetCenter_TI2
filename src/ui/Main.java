@@ -96,13 +96,6 @@ public class Main{
 	 			endDayReports();
 	 			break;
 
-	 			case 9:
-	 			mostrarVeterinarios();
-	 			break;
-
-	 			case 10:
-	 			mostrarMascotas();
-	 			break;
 	 		}
 	 	}
 	 }
@@ -273,8 +266,8 @@ public class Main{
 	 }
 
 	 /**
-	 *
-	 *	
+	 *This method allows the user to initiate a veterinary consultation.
+	 *The relationship center is used to send the id of the veterinarian who will do the consultation.	
 	 */
 	 public void startConsultation(){
 
@@ -397,15 +390,7 @@ public class Main{
 	 	System.out.println("Todas las mascotas atendidas han sido eliminadas");
 	 }
 
-	 public void mostrarVeterinarios(){
-
-	 	center.mostrarVeterinarios();
-	 }
-
-	 public void mostrarMascotas(){
-
-	 	center.mostrarMascotas();
-	 }
+	
 
 	 
 
