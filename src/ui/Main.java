@@ -255,7 +255,7 @@ public class Main{
 
 	 /**
 	 *This method will allow the user to take a pet out of the center. 
-	 *
+	 *The center relation sends the data to the class method of the model and removes the pet.
 	 */
 	 public void removePet(){
 
@@ -287,8 +287,8 @@ public class Main{
 	 }
 
 	 /**
-	 *
-	 *
+	 *This method allows to finalize a veterinary consultation previously started.
+	 *The relationship center is used to send the veterinarian and pet data to the method that completes the consultation.
 	 */
 	 public void endConsultation(){
 
@@ -327,8 +327,8 @@ public class Main{
 	 }
 
 	 /**
-	 *
-	 *
+	 *This method shows all the reports to end the day.
+	 *If the condition is met, the boolean data type "continued" changes and closes the program. 
 	 */
 	 public void endDayReports(){
 	 	boolean check = center.checkNotWaitingPets();
@@ -346,8 +346,8 @@ public class Main{
 	 }
 
 	 /**
-	 *
-	 *
+	 *This method counts unattended pets and displays them to the user.
+	 *Relationship center calls the method that counts the mascot
 	 */
 	 public void notAttendedPets(){
 
@@ -355,8 +355,8 @@ public class Main{
 	 }
 
 	 /**
-	 *
-	 *
+	 *This method obtains the veterinarian with the most consultations.
+	 *The relationship center gets the veterinarian by calling the method
 	 */
 	 public void veterinaryMostAttendPets(){
 
@@ -364,8 +364,8 @@ public class Main{
 	 }
 
 	 /**
-	 *
-	 *
+	 *This method counts each pet by priority
+	 *The center relation is used to call a method and assign it to an array to display the data.
 	 */
 	 public void attendsPetsForPriority(){
 
@@ -379,8 +379,8 @@ public class Main{
 	 }
 
 	 /**
-	 *
-	 *
+	 *This method calculates the percentage of pets that left without being attended by a veterinarian.
+	 *The center relation is used to call the method that calculates the percentage and displays it to the user.
 	 */
 	 public void notAttendPercentage(){
 
@@ -388,8 +388,8 @@ public class Main{
 	 }
 
 	 /**
-	 *
-	 *
+	 *This method takes care of eliminating all pets once the day is over.
+	 *The relationship center is used to call the method that is in charge of eliminating all pets.
 	 */
 	 public void deleteAttendedPets(){
 

@@ -3,40 +3,40 @@ package model;
 public class PetCenter{
 
 	/**
-
+	A constant limiting the number of veterinarians
 	*/
 	public final int MAX_VETERINARIES = 7;
 
 	/**
-
+	A constant limiting the number of pets
 	*/
 	public final int MAX_ATTENDED_PETS = 120;
 
 	/**
-
+	A global variable to count the number of veterinarians added.
 	*/
 	private int numVeterinaries;
 
 	/**
-
+	A global variable to count the number of pets added.
 	*/
 	private int numPets;
 
 	/**
-
+	An array of type Veterinary to add each veterinarian in a position.
 	*/
 	private Veterinary[] veterinaries;
 
 	/**
-
+	A Pet type arrangement to add each pet in one position.
 	*/
 	private Pet[] pets;
 
 	///////////////////////Method Constructs
 
 	/**
-	*
-	*
+	* Metodo constructs of PetCenter class
+	*In this method all global variables are initialized.
 	*/
 	public PetCenter(){
 
@@ -49,9 +49,9 @@ public class PetCenter{
 	//////////////////Gets
 
 	/**
-	*
-	*
-	*@return
+	*A get method for obtaining and displaying a veterinarian
+	*The global arrangement of veterinarians is used to obtain one in a position.
+	*@return veterinaries type Veterinary, returns a data of type veterinarian
 	*/
 	public Veterinary[] getVeterinaries(){
 
@@ -59,9 +59,9 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@return
+	*A get method for obtaining and displaying a pet
+	*The global arrangement of veterinarians is used to obtain one in a position.
+	*@return pets type Pet, returns a data of type Pet
 	*/
 	public Pet[] getPets(){
 
@@ -71,9 +71,9 @@ public class PetCenter{
 	////////////////////Sets
 
 	/**
-	*
-	*
-	*@param
+	*A method to change a Veterinary data type
+	*Global array veterinaries is used to change an object of type Veterinary
+	*@param Veterinaries type Veterinary
 	*/
 	public void setVeterinaries(Veterinary[] veterinaries){
 
@@ -81,9 +81,9 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@param
+	*A method to change a Pet data type
+	*Global array pets is used to change an object of type Veterinary
+	*@param pets type Pet
 	*/
 	public void setPet(Pet[] pets){
 
@@ -93,10 +93,14 @@ public class PetCenter{
 	////////////////////Methods
 
 	/**
-	*
-	*
-	*@param
-	*@return
+	*Method used to add a veterinarian 
+	*There should be no more than seven veterinarians in the arrangement.
+	*The veterinarian array gets an object of type veterinarian in one position
+	*@param id type String
+	*@param name type String
+	*@param lastname type String
+	*@param uniqueNumber type String
+	*@return addVeterinary type boolean, returns true if the conditions for adding a veterinarian are met, otherwise it returns false.
 	*/
 	public boolean addVeterinary(String id, String name, String lastname, String uniqueNumber){
 
@@ -124,9 +128,10 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@param
+	*This method eliminates a veterinarian from the array
+	*To delete a veterinarian, the pets array must be null.
+	*Removes an object of type Veterinary from the array.
+	*@param uniqueNumbre type String, veterinaries[i].getUniqueNumber().equals(uniqueNumber) 
 	*/
 	public void deleteVeterinary(String uniqueNumber){
 
@@ -157,10 +162,21 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@param
-	*@return
+	*This method adds a pet to the pets arrangement.
+	*There can be no more than 120 pets in the arrangement.
+	*Adds an object of type Pet to the pet array
+	*@param specie type String
+	*@param name type String
+	*@param age type String
+	*@param race type String
+	*@param symptoms type String
+	*@param priority type String
+	*@param status type String
+	*@param nameOwn type String
+	*@param idOwn type String
+	*@param phoneOwn type String
+	*@param addressOwn type String
+	*@return addPet type boolean, if the conditions are fulfilled it returns true, otherwise it returns false
 	*/
 	public boolean addPet(String specie, String name, String age, String race, String symptoms, 
 		Priority priority, Status status, String nameOwn, String idOwn, String phoneOwn, String addressOwn){
@@ -189,9 +205,11 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@param
+	*This method allows you to change the status of a pet.
+	*Object of type Pet must have status WAITING
+	*Change pet status to "INNATENDED_DEPARTURE".
+	*@param name type String, pets[i].getName().equals(name)
+	*@param nameOwn type String, pets[i].getOwner().getName().equals(nameOwn)
 	*/
 	public void removePet(String name, String nameOwn){
 
@@ -215,10 +233,9 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@param
-	*@return
+	*This method assigns a numerical value to a priority for comparison.
+	*@param priority type Priority
+	*@return valuePriority type int, obtains the pet's priority to assign a numerical value to it
 	*/
 	public int valuePriority(Priority priority){
 
@@ -246,9 +263,8 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@return
+	*This method is responsible for passing the pet with the highest priority to a veterinarian.
+	*@return nextPet type Pet, returns the pet with the highest priority
 	*/
 	public Pet findNextPet(){
 
@@ -257,28 +273,37 @@ public class PetCenter{
 		int priority1=0;
 		int priority2=0;
 
-		if(pets[0] != null){
+		boolean find = false;
 
-			nexPet = pets[0];
-		}
-
-		for(int i=1; i<pets.length; i++){
-
+		for(int i = 0; i>pets.length && !find; i++){
 			if(pets[i] != null){
-				priority1 = valuePriority(nexPet.getPriority());
-				priority2 = valuePriority(pets[i].getPriority());
-				if(priority2 > priority1){
+				if(pets[i].getStatus() == Status.WAITING){
 					nexPet = pets[i];
+					find = true;	
 				}
 			}
+		}
+		
+
+		for(int i=1; i<pets.length; i++){
+			if(pets[i] != null){
+				if(pets[i].getStatus() == Status.WAITING){
+					priority1 = valuePriority(nexPet.getPriority());
+					priority2 = valuePriority(pets[i].getPriority());
+					if(priority2 > priority1){
+						nexPet = pets[i];
+					}
+				} 
+			}	
 		}
 		return nexPet;
 	}
 
 	/**
-	*
-	*
-	*@param
+	*This method takes care of starting the consultation with a veterinarian.
+	*To initiate a consultation, the pet must have the status "WAITING".
+	*The object in pets type Pet will have a status change chosen by the user.
+	*@param id type String, veterinaries[i].getId().equals(id) 
 	*/
 	public void startConsultation(String id){
 		
@@ -292,7 +317,7 @@ public class PetCenter{
 
 					if(veterinaries[i].getAvailable()){
 						Pet pet = findNextPet();
-						if(pet.getStatus() != Status.INNATENDED_DEPARTURE){
+						if(pet.getStatus() == Status.WAITING){
 							find = true;
 							pet.setStatus(Status.IN_CONSULTATION);
 							pet.setAttend(veterinaries[i]);
@@ -322,10 +347,9 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@param
-	*@return
+	*The method takes care of finding the veterinarian who attended the pet.
+	*@param veterinary type Veterinary, pets[i].getAttend().equals(veterinary) 
+	*@return pet type Pet, returns a data of type pet 
 	*/
 	public Pet findPetByVeterinary(Veterinary veterinary){
 
@@ -342,9 +366,10 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@param
+	*This method takes care of finalizing a veterinary consultation.
+	*@param id type String, veterinaries[i].getId().equals(id)
+	*@param namePet type String, pet.getName().equals(namePet)
+	*@param status type Status
 	*/
 	public void endConsultation(String id, String namePet, Status status){
 
@@ -381,9 +406,8 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@return
+	*This method is responsible for showing pets that have not been cared for.
+	*@return notAttend type int, returns an integer with the number of pets that have not been attended to
 	*/
 	public int notAttendedPets(){
 
@@ -400,9 +424,8 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@return
+	*This method verifies that there are no pets to be attended.
+	*@return check type boolean, if check is false it will let the day end, otherwise it will not let it do so
 	*/
 	public boolean checkNotWaitingPets(){
 
@@ -419,9 +442,8 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@return
+	*This method is in charge of obtaining the veterinarian with the most queries.
+	*@return veterinaries[pos].getName() type String, get the name of the veterinarian with the most inquiries
 	*/
 	public String veterinaryMostAttendPets(){
 
@@ -459,9 +481,8 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@return
+	*This method is in charge of counting each pet by priority.
+	*@return pririties type int, returns an array with the number of pets per priority.
 	*/
 	public int[] attendsPetsForPriority(){
 
@@ -491,9 +512,8 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
-	*@return
+	*This method takes care of getting the percentage of pets with the status "INNATENDED_DEPARTURE".
+	*@return percentage type double
 	*/
 	public double notAttendPercentage(){
 
@@ -512,8 +532,8 @@ public class PetCenter{
 	}
 
 	/**
-	*
-	*
+	*This method eliminates all pets at the end of the day.
+	*the global pets array becomes null
 	*/
 	public void deleteAttendedPets(){
 
