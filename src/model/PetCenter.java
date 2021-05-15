@@ -219,6 +219,7 @@ public class PetCenter{
 				if(pets[i].getName().equals(name) && (pets[i].getOwner().getName().equals(nameOwn))){
 					System.out.println("La mascota "+pets[i].getName()+" ha sido eliminada");
 					pets[i].setStatus(Status.INNATENDED_DEPARTURE);
+					pets[i].setPriority(Priority.CERO);
 					find = true;
 				}
 				else{
@@ -235,31 +236,36 @@ public class PetCenter{
 	/**
 	*This method assigns a numerical value to a priority for comparison.
 	*@param priority type Priority
-	*@return valuePriority type int, obtains the pet's priority to assign a numerical value to it
+	*@return priorityResult type int, obtains the pet's priority to assign a numerical value to it
 	*/
 	public int valuePriority(Priority priority){
 
+		int priorityResult = 0;
+
 		if(Priority.RED == priority){
-			return 5;
+			priorityResult = 5;
 		}
 
 		else if(Priority.ORANGE == priority){
-			return 4;
+			priorityResult = 4;
 		}
 
 		else if(Priority.YELLOW == priority){
-			return 3;
+			priorityResult = 3;
 		}
 
 		else if(Priority.GREEN == priority){
-			return 2;
+			priorityResult = 2;
 		}
 
 		else if(Priority.BLUE == priority){
-			return 1;
+			priorityResult = 1;
+		}
+		else if(Priority.CERO == priority){
+			priorityResult = 0;
 		}
 
-		return 0;
+		return priorityResult;
 	}
 
 	/**
@@ -280,7 +286,7 @@ public class PetCenter{
 
 		for(int i=1; i<pets.length; i++){
 			if(pets[i] != null){
-				if(pets[i].getStatus() == Status.WAITING){
+				if(pets[i].getStatus().equals(Status.WAITING)){
 					priority1 = valuePriority(nexPet.getPriority());
 					priority2 = valuePriority(pets[i].getPriority());
 					if(priority2 > priority1){
@@ -340,25 +346,6 @@ public class PetCenter{
 	}
 
 	/**
-	*The method takes care of finding the veterinarian who attended the pet.
-	*@param veterinary type Veterinary, pets[i].getAttend().equals(veterinary) 
-	*@return pet type Pet, returns a data of type pet 
-	*/
-	public Pet findPetByVeterinary(Veterinary veterinary){
-
-		Pet pet = null;
-		boolean find = false;
-
-		for(int i=0; i<pets.length && !find; i++){
-			if(pets[i].getAttend().equals(veterinary)){
-				pet = pets[i];
-				find = true;
-			}
-		}
-		return pet;
-	}
-
-	/**
 	*This method takes care of finalizing a veterinary consultation.
 	*@param id type String, veterinaries[i].getId().equals(id)
 	*@param namePet type String, pet.getName().equals(namePet)
@@ -369,33 +356,55 @@ public class PetCenter{
 		boolean find = false;
 
 		for(int i=0; i<veterinaries.length && !find; i++){
-			if(veterinaries[i].getId().equals(id)){
-				if(!veterinaries[i].getAvailable()){
-					Pet pet = findPetByVeterinary(veterinaries[i]);
-					if(pet != null){
-						if(pet.getName().equals(namePet)){
+			if(veterinaries != null){
+				if(veterinaries[i].getId().equals(id)){
+					if(!veterinaries[i].getAvailable()){
+						Pet pet = findPetByVeterinary(veterinaries[i]);
+						if(pet != null){
+							if(pet.getName().equals(namePet)){
 
-						pet.setStatus(status);
-						veterinaries[i].setAvailable(true);
-						System.out.println("La mascota "+pet.getName()+" ha finalizado la consulta exitosamente");
-						find = true;
+								pet.setStatus(status);
+								veterinaries[i].setAvailable(true);
+								System.out.println("La mascota "+pet.getName()+" ha finalizado la consulta exitosamente");
+								find = true;
 
+							}
+							else{
+
+								System.out.println("El nombre de la mascota no coincide con el que atiende el veterinario");
+							}
 						}
 						else{
-
-							System.out.println("El nombre de la mascota no coincide con el que atiende el veterinario");
+							System.out.println("El veterinario no esta atendiendo ninguna mascota");
 						}
 					}
-					else{
-						System.out.println("El veterinario no esta atendiendo ninguna mascota");
-					}
-					
 				}	
 			}
 		}
 		if(!find){
 			System.out.print("El id ingresado no existe");
 		}
+	}
+
+	/**
+	*The method takes care of finding the veterinarian who attended the pet.
+	*@param veterinary type Veterinary, pets[i].getAttend().equals(veterinary) 
+	*@return pet type Pet, returns a data of type pet 
+	*/
+	public Pet findPetByVeterinary(Veterinary veterinary){
+
+		Pet pet = null;
+		boolean find = false;
+
+		for(int i=0; i<pets.length && !find; i++){
+			if(pets[i] != null){
+				if(pets[i].getAttend().equals(veterinary)){
+					pet = pets[i];
+					find = true;
+				}
+			}	
+		}
+		return pet;
 	}
 
 	/**

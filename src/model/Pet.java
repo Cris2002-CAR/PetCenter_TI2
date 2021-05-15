@@ -74,7 +74,7 @@ public class Pet{
 		this.priority = priority;
 		this.status = status;
 		this.owner = owner;
-		attend = null;
+		
 	}
 
 	////////////////////////Gets
@@ -219,6 +219,11 @@ public class Pet{
 	public void setStatus(Status status){
 
 		this.status = status;
+	}
+
+	public void setPriority(Priority priority){
+
+		this.priority = priority;
 	}
 
 	/**
