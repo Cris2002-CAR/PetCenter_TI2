@@ -110,19 +110,15 @@ public class Main{
  
 	 	System.out.print("Cedula: ");
 	 	String id = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.print("Nombre: ");
 	 	String name = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.print("Apellido: ");
 	 	String lastname = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.print("Numero unico del veterinario: ");
 	 	String uniqueNumber = reader.nextLine();
-	 	reader.nextLine();
 
 	 	boolean saved = center.addVeterinary(id, name, lastname, uniqueNumber);
 	 	
@@ -144,7 +140,6 @@ public class Main{
 	 	System.out.println("Por favor ingrese el numero unico del veterinario que desea eliminar: ");
 
 	 	String uniqueNumber = reader.nextLine();
-	 	reader.nextLine();
 
 	 	center.deleteVeterinary(uniqueNumber);
 	 	
@@ -160,41 +155,33 @@ public class Main{
 
 	 	System.out.print("Especie: ");
 	 	String specie = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.print("Nombre: ");
 	 	String name = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.print("Edad: ");
 	 	String age = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.print("Raza (Si es perro o gato): ");
 	 	String race = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.print("Sintomas: ");
 	 	String symptoms = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.println("Ingrese los datos del dueno: ");
 	 	
 	 	System.out.print("Nombre: ");
 	 	String nameOwn = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.print("Cedula: ");
 	 	String idOwn = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.print("Celular: ");
 	 	String phoneOwn = reader.nextLine();
-	 	reader.nextLine();
 	 	
 	 	System.out.print("Direccion: ");
 	 	String addressOwn = reader.nextLine();
-	 	reader.nextLine();
+	 	System.out.println();
 	 		 	
 
 	 	System.out.println("Seleccione la prioridad en la que la mascota debe ser atendida: "
@@ -254,12 +241,9 @@ public class Main{
 
 	 	System.out.println("Por favor ingrese el nombre de la mascota: ");
 	 	String name = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.println("Por favor ingrese el nombre del dueno: ");
-	 	String nameOwn = reader.nextLine();
-	 	reader.nextLine();
-	 	
+	 	String nameOwn = reader.nextLine();	 	
 
 	 	center.removePet(name, nameOwn);
 
@@ -271,9 +255,8 @@ public class Main{
 	 */
 	 public void startConsultation(){
 
-	 	System.out.println("Por favor ingrese el cedula del veterinario: ");
+	 	System.out.print("Por favor ingrese el cedula del veterinario: ");
 	 	String id = reader.nextLine();
-	 	reader.nextLine();
 
 	 	center.startConsultation(id);
 
@@ -285,13 +268,11 @@ public class Main{
 	 */
 	 public void endConsultation(){
 
-	 	System.out.println("Por favor ingrese la cedula del veterinario: ");
+	 	System.out.print("Por favor ingrese la cedula del veterinario: ");
 	 	String id = reader.nextLine();
-	 	reader.nextLine();
 
-	 	System.out.println("Por favor ingrese el nombre de la mascota: ");
+	 	System.out.print("Por favor ingrese el nombre de la mascota: ");
 	 	String namePet = reader.nextLine();
-	 	reader.nextLine();
 
 	 	System.out.println("Por favor indique con que estado sale la mascota: "
 	 		+"\n1. Salida autorizada"
