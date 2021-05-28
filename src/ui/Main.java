@@ -27,10 +27,57 @@ public class Main{
 	*/
 	private boolean continued = true;
 
+	/**
+	*Constructor method for initializing attributes or relationships
+	*/
+
+	public Main(){
+
+		center = new PetCenter();
+	}
+
 	public static void main (String[] args){
 
 		Main obj = new Main();
-		obj.Menu();
+
+		do{
+			
+			obj.mainMenu();
+
+		}while(obj.continued);
+	 }
+
+
+	 public void mainMenu(){
+
+	 	int option = 0;
+
+
+		System.out.println("  MAIN MENU  "
+ 			+"\n1. Veterinary emergencies"
+ 			+"\n2. Pet nursery and hospitalization"
+ 			+"\n3. End day");
+
+ 		System.out.print("Choose an option: ");
+
+ 		option = reader.nextInt();
+ 		reader.nextLine();
+ 		System.out.println();
+
+
+ 		switch(option){
+ 			case 1:
+ 				menu1();
+ 				break;
+			case 2:
+				petNurseryMenu();
+				break;
+			case 3:
+				endDayReports();
+				break;
+ 		}
+
+	 	
 
 	 }
 
@@ -38,22 +85,26 @@ public class Main{
 	 *In this method the user will be able to enter a menu, where he must choose what to do in the program.
 	 *The global boolean variable is used to close the program when the user is able to do so.
 	 */
-	 public void Menu(){
+	 public void menu1(){
 
-	 	int option;
+	 	int option=0;
+	 	int menuOption = 1;
 	 	
-	 	center = new PetCenter();
-	 	while(continued){
-
-	 		option = Integer.parseInt(JOptionPane.showInputDialog("Menu"
-	 			+"\n1. Agregar un veterinario"
-	 			+"\n2. Eliminar veterinario"
-	 			+"\n3. Registrar una mascota"
-	 			+"\n4. Retirar una mascota"
-	 			+"\n5. Iniciar una consulta"
-	 			+"\n6. Finalizar una consulta"
-	 			+"\n7. Mostras el numero de mascostas que no han sido atendidas"
-	 			+"\n8. Terminar el dia"));
+	 	while(menuOption != 0){
+	 		System.out.println("  \nEMERGENCY MENU  "
+	 			+"\n0. Back to main menu"
+	 			+"\n1. Add a vet"
+	 			+"\n2. Remove vet"
+	 			+"\n3. Register a pet"
+	 			+"\n4. Remove a pet"
+	 			+"\n5. Start a veterinary consultation"
+	 			+"\n6. Finalize a veterinary consultation"
+	 			+"\n7. Show the number of pets that have not been cared for");
+	 			
+	 		System.out.print("Choose an option: ");
+	 		option = reader.nextInt();
+	 		reader.nextLine();
+	 		System.out.println();
 
 	 		switch(option){
 	 			case 1:
@@ -91,14 +142,41 @@ public class Main{
 	 			notAttendedPets();
 	 			break;
 
-	 			case 8:
-	 			System.out.println("___________________________________________________________________________");
-	 			endDayReports();
+	 			case 0:
+	 			menuOption = 0;
 	 			break;
 
 	 		}
 	 	}
 	 }
+
+
+	 public void petNurseryMenu(){
+
+	 	int option = 0;
+	 	int menuOption = 1;
+	 	
+	 	while(menuOption != 0){
+	 		System.out.println("  \nPET NURSERY MENU  "  
+	 			+"\n0. Back to main menu");
+
+	 		System.out.print("Choose an option: ");
+	 		option = reader.nextInt();
+	 		reader.nextLine();
+	 		System.out.println();
+
+	 		switch(option){
+
+	 			case 0:
+	 				menuOption = 0;
+	 				break;
+	 		}
+
+	 	}
+	 	
+	 }
+
+
 
 	 /**
 	 *This method allows the user to add a veterinarian
@@ -106,27 +184,27 @@ public class Main{
 	 */
 	 public void addVeterinary(){
 
-	 	System.out.println("Por favor ingrese la informacion personal del veterinario: ");
+	 	System.out.println("Please enter the vet's personal information: ");
  
-	 	System.out.print("Cedula: ");
+	 	System.out.print("ID: ");
 	 	String id = reader.nextLine();
 
-	 	System.out.print("Nombre: ");
+	 	System.out.print("Name: ");
 	 	String name = reader.nextLine();
 
-	 	System.out.print("Apellido: ");
+	 	System.out.print("Last name: ");
 	 	String lastname = reader.nextLine();
 
-	 	System.out.print("Numero unico del veterinario: ");
+	 	System.out.print("Veterinarian's unique number: ");
 	 	String uniqueNumber = reader.nextLine();
 
 	 	boolean saved = center.addVeterinary(id, name, lastname, uniqueNumber);
 	 	
 	 	if(saved){
-	 		System.out.println("El veterinario ha sido agregado exitosamente\n");
+	 		System.out.println("The veterinarian has been successfully added\n");
 	 	}
 	 	else{
-	 		System.out.println("Se ha sobrepasado el numero de veterinarios permitidos\n");
+	 		System.out.println("The number of veterinarians allowed has been exceeded\n");
 	 	}
 
 	 }
@@ -137,7 +215,7 @@ public class Main{
 	 */
 	 public void deleteVeterinary(){
 
-	 	System.out.println("Por favor ingrese el numero unico del veterinario que desea eliminar: ");
+	 	System.out.println("Please enter the unique number of the veterinarian you wish to remove: ");
 
 	 	String uniqueNumber = reader.nextLine();
 
@@ -151,45 +229,45 @@ public class Main{
 	 */
 	 public void addPetandOwner(){
 
-	 	System.out.println("Por favor ingrese los datos de la mascota que desea agregar: ");
+	 	System.out.println("Please enter the data of the pet you want to add: ");
 
-	 	System.out.print("Especie: ");
+	 	System.out.print("Specie: ");
 	 	String specie = reader.nextLine();
 
-	 	System.out.print("Nombre: ");
+	 	System.out.print("Name: ");
 	 	String name = reader.nextLine();
 
-	 	System.out.print("Edad: ");
+	 	System.out.print("Age: ");
 	 	String age = reader.nextLine();
 
-	 	System.out.print("Raza (Si es perro o gato): ");
+	 	System.out.print("Race (Dog or cat): ");
 	 	String race = reader.nextLine();
 
-	 	System.out.print("Sintomas: ");
+	 	System.out.print("Symptoms: ");
 	 	String symptoms = reader.nextLine();
 
-	 	System.out.println("Ingrese los datos del dueno: ");
+	 	System.out.println("Enter owner details: ");
 	 	
-	 	System.out.print("Nombre: ");
+	 	System.out.print("Name: ");
 	 	String nameOwn = reader.nextLine();
 
-	 	System.out.print("Cedula: ");
+	 	System.out.print("ID: ");
 	 	String idOwn = reader.nextLine();
 
-	 	System.out.print("Celular: ");
+	 	System.out.print("Cellphone: ");
 	 	String phoneOwn = reader.nextLine();
 	 	
-	 	System.out.print("Direccion: ");
+	 	System.out.print("Address: ");
 	 	String addressOwn = reader.nextLine();
 	 	System.out.println();
 	 		 	
 
-	 	System.out.println("Seleccione la prioridad en la que la mascota debe ser atendida: "
-	 		+"\n1: Roja"
-	 		+"\n2: Naranja"
-	 		+"\n3: Amarrila"
-	 		+"\n4: Verde"
-	 		+"\n5: Azul");
+	 	System.out.println("Select the priority in which the pet should be cared for: "
+	 		+"\n1: RED"
+	 		+"\n2: ORANGE"
+	 		+"\n3: YELLOW"
+	 		+"\n4: GREEN"
+	 		+"\n5: BLUE");
 
 	 	int status = reader.nextInt();
 	 	reader.nextLine();
@@ -222,13 +300,17 @@ public class Main{
 	 		saved = center.addPet(specie, name, age, race, symptoms, Priority.BLUE, Status.WAITING, nameOwn,
 	 			idOwn, phoneOwn, addressOwn);
 	 		break;
+
+	 		default:
+	 		System.out.println("Error. invalid option");
+	 		break;
 	 		
 	 	}
 	 	if(saved){
-	 		System.out.println("La mascota se ha registrado exitosamente\n");
+	 		System.out.println("The pet has been successfully registered\n");
 	 	}
 	 	else{
-	 		System.out.println("No se ha podido registrar la mascota por que se ha excedido el numero permitido\n");
+	 		System.out.println("The pet could not be registered because the allowed number has been exceeded\n");
 	 	}
 
 	 }
@@ -239,10 +321,10 @@ public class Main{
 	 */
 	 public void removePet(){
 
-	 	System.out.println("Por favor ingrese el nombre de la mascota: ");
+	 	System.out.println("Please enter the name of the pet: ");
 	 	String name = reader.nextLine();
 
-	 	System.out.println("Por favor ingrese el nombre del dueno: ");
+	 	System.out.println("Please enter the owner's name: ");
 	 	String nameOwn = reader.nextLine();	 	
 
 	 	center.removePet(name, nameOwn);
@@ -255,7 +337,7 @@ public class Main{
 	 */
 	 public void startConsultation(){
 
-	 	System.out.print("Por favor ingrese el cedula del veterinario: ");
+	 	System.out.print("Please enter the vet's ID: ");
 	 	String id = reader.nextLine();
 
 	 	center.startConsultation(id);
@@ -268,15 +350,15 @@ public class Main{
 	 */
 	 public void endConsultation(){
 
-	 	System.out.print("Por favor ingrese la cedula del veterinario: ");
+	 	System.out.print("Please enter the vet's ID: ");
 	 	String id = reader.nextLine();
 
-	 	System.out.print("Por favor ingrese el nombre de la mascota: ");
+	 	System.out.print("Please enter the name of the pet: ");
 	 	String namePet = reader.nextLine();
 
-	 	System.out.println("Por favor indique con que estado sale la mascota: "
-	 		+"\n1. Salida autorizada"
-	 		+"\n2. Hospitalizacion");
+	 	System.out.println("Please indicate what state the pet leaves with: "
+	 		+"\n1. AUTHORIZE DEPARTURE"
+	 		+"\n2. HOSPITALIZATION");
 
 	 	int option = 0;
 
@@ -294,7 +376,7 @@ public class Main{
 	 		break;
 
 	 		default:
-	 		System.out.print("ERROR. opcion invalida");
+	 		System.out.print("ERROR. Invalid option");
 	 		break;
 	 	}
 
@@ -308,7 +390,7 @@ public class Main{
 	 	boolean check = center.checkNotWaitingPets();
 	 	if(check){
 
-	 		System.out.print("Todavia hay mascotas por atender");
+	 		System.out.println("There are still pets to attend to");
 	 	}
 	 	else{
 	 		veterinaryMostAttendPets();
@@ -325,7 +407,7 @@ public class Main{
 	 */
 	 public void notAttendedPets(){
 
-	 	System.out.println("El numero de mascotas que no han sido atendidas es: "+center.notAttendedPets());
+	 	System.out.println("The number of pets that have not been cared for is: "+center.notAttendedPets());
 	 }
 
 	 /**
@@ -334,7 +416,7 @@ public class Main{
 	 */
 	 public void veterinaryMostAttendPets(){
 
-	 	System.out.println("El veterinario con mayor numero de consultas es: "+center.veterinaryMostAttendPets());
+	 	System.out.println("The veterinarian with the highest number of consultations is: "+center.veterinaryMostAttendPets());
 	 }
 
 	 /**
@@ -345,11 +427,11 @@ public class Main{
 
 	 	int priorities[] = center.attendsPetsForPriority();
 
-	 	System.out.println("Hay "+priorities[0]+" mascotas con prioridad roja");
-	 	System.out.println("Hay "+priorities[1]+" mascotas con prioridad naranja");
-	 	System.out.println("Hay "+priorities[2]+" mascotas con prioridad amarrila");
-	 	System.out.println("Hay "+priorities[3]+" mascotas con prioridad verde");
-	 	System.out.println("Hay "+priorities[4]+" mascotas con prioridad azul");
+	 	System.out.println("There are "+priorities[0]+" pets with red priority");
+	 	System.out.println("There are "+priorities[1]+" pets with orange priority");
+	 	System.out.println("There are "+priorities[2]+" pets with yellow priority");
+	 	System.out.println("There are "+priorities[3]+" pets with green priority");
+	 	System.out.println("There are "+priorities[4]+" pets with blue priority");
 	 }
 
 	 /**
@@ -358,7 +440,7 @@ public class Main{
 	 */
 	 public void notAttendPercentage(){
 
-	 	System.out.println("El porcentaje de mascotas que salieron sin ser atendidas es: "+center.notAttendPercentage()+"%");
+	 	System.out.println("The percentage of pets that left unattended is: "+center.notAttendPercentage()+"%");
 	 }
 
 	 /**
@@ -368,7 +450,7 @@ public class Main{
 	 public void deleteAttendedPets(){
 
 	 	center.deleteAttendedPets();
-	 	System.out.println("Todas las mascotas atendidas han sido eliminadas");
+	 	System.out.println("All pets cared for have been removed");
 	 }
 
 	

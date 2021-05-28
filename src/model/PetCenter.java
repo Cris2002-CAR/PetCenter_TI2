@@ -148,14 +148,14 @@ public class PetCenter{
 			if(veterinaries[i] != null){
 				if(veterinaries[i].getUniqueNumber().equals(uniqueNumber) && (registerPet==0)){
 
-				System.out.println("El veterinario "+veterinaries[i].getName()+ " con numero unico "+veterinaries[i].getUniqueNumber()+ " fue eliminado");
+				System.out.println(veterinaries[i].getName()+" veterinarian whith unique number "+veterinaries[i].getUniqueNumber()+ " was deleted");
 				veterinaries[i] = null;
 				find = true;
 				numVeterinaries--;
 			  	}
 			  	else{
 
-			  		System.out.println("No se pudo eliminar el veterinario porque hay mascotas registradas o se ingreso mal su numero unico");
+			  		System.out.println("The veterinarian could not be eliminated because there are registered pets or their unique number was entered incorrectly");
 			  	}
 			}		
 		}
@@ -217,14 +217,14 @@ public class PetCenter{
 		for(int i=0; i<pets.length && !find && (pets[i].getStatus() == Status.WAITING); i++){
 			if(pets[i] != null){
 				if(pets[i].getName().equals(name) && (pets[i].getOwner().getName().equals(nameOwn))){
-					System.out.println("La mascota "+pets[i].getName()+" ha sido eliminada");
+					System.out.println("The pet "+pets[i].getName()+" was deleted");
 					pets[i].setStatus(Status.INNATENDED_DEPARTURE);
 					pets[i].setPriority(Priority.CERO);
 					find = true;
 				}
 				else{
 
-					System.out.println("No se puede eliminar esta mascota porque ya esta en consulta o fue atendida por un veterinario");
+					System.out.println("This pet cannot be eliminated because it is already in consultation or was attended by a veterinarian");
 				}	
 			}
 		}
@@ -321,18 +321,18 @@ public class PetCenter{
 							pet.setStatus(Status.IN_CONSULTATION);
 							pet.setAttend(veterinaries[i]);
 							veterinaries[i].setAvailable(false);
-							System.out.println("La mascota "+pet.getName()+" ha iniciado consulta");
+							System.out.println(pet.getName()+" pet has started consultation");
 						}
 						else{
 
-							System.out.println("No hay mascota para atender");
+							System.out.println("There is no pet to attend");
 							find = true;
 						}
 
 					}
 					else{
 
-						System.out.println("El veterinario no esta disponible");
+						System.out.println("The vet is not available");
 						find = true;
 					}
 
@@ -340,7 +340,7 @@ public class PetCenter{
 			}	
 		}
 		if(!find){
-			System.out.println("El veterinario con id: "+id+" no existe");
+			System.out.println("The vet with id: "+ id +" does not exist");
 		}
 
 	}
@@ -365,24 +365,24 @@ public class PetCenter{
 
 								pet.setStatus(status);
 								veterinaries[i].setAvailable(true);
-								System.out.println("La mascota "+pet.getName()+" ha finalizado la consulta exitosamente");
+								System.out.println(pet.getName()+" pet has successfully completed the consultation");
 								find = true;
 
 							}
 							else{
 
-								System.out.println("El nombre de la mascota no coincide con el que atiende el veterinario");
+								System.out.println("The pet's name does not match the one seen by the vet");
 							}
 						}
 						else{
-							System.out.println("El veterinario no esta atendiendo ninguna mascota");
+							System.out.println("The vet is not treating any pets");
 						}
 					}
 				}	
 			}
 		}
 		if(!find){
-			System.out.print("El id ingresado no existe");
+			System.out.print("The id entered does not exist");
 		}
 	}
 
