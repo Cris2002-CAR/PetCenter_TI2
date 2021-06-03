@@ -32,6 +32,38 @@ public class PetCenter{
 	*/
 	private Pet[] pets;
 
+	//////////////////////////EXTENDS TI3 attributes
+
+	////////////////////Constants for limits
+	private final int MIN_CATROW = 0;
+	private final int MAX_CATROW = 2;
+	private final int MIN_CATCOL = 0;
+	private final int MAX_CATCOL = 2;
+
+	private final int MIN_DOGROW = 3;
+	private final int MAX_DOGROW = 5;
+	private final int MIN_DOGCOL = 0;
+	private final int MAX_DOGCOL = 2;
+
+	private final int MIN_REPTILROW = 0;
+	private final int MAX_REPTILROW = 1;
+	private final int MIN_REPTILCOL = 3;
+	private final int MAX_REPTILCOL = 4;
+
+	private final int MIN_RABBITROW = 2;
+	private final int MAX_RABBITROW = 3;
+	private final int MIN_RABBITCOL = 3;
+	private final int MAX_RABBITCOL = 4;
+
+	private final int MIN_BIRDROW = 4;
+	private final int MAX_BIRDROW = 5;
+	private final int MIN_BIRDCOL = 3;
+	private final int MAX_BIRDCOL = 4;
+
+	////////////////////////// MATRIX
+
+	private PetHabitats[][] habitats;
+
 	///////////////////////Method Constructs
 
 	/**
@@ -44,6 +76,7 @@ public class PetCenter{
 		pets = new Pet[MAX_ATTENDED_PETS];
 		numVeterinaries = 0;
 		numPets = 0;
+		habitats = new PetHabitats[6][5];
 
 	}
 	//////////////////Gets
@@ -541,6 +574,8 @@ public class PetCenter{
 
 		pets = new Pet[MAX_ATTENDED_PETS];
 	}
+
+	////////////////EXTENS TI3 Methods
 
 	
 }

@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import model.PetCenter;
 
+import model.PetNursery;
+
 import model.Priority;
 
 import model.Status;
@@ -23,6 +25,11 @@ public class Main{
 	private PetCenter center;
 
 	/**
+	Relationship with the PetNursery class for access to the center's nursery
+	*/
+	private PetNursery nursery;
+
+	/**
 	Global data type boolean to close the menu with the condition required by the program.
 	*/
 	private boolean continued = true;
@@ -34,6 +41,7 @@ public class Main{
 	public Main(){
 
 		center = new PetCenter();
+		nursery = new PetNursery();
 	}
 
 	public static void main (String[] args){
@@ -170,6 +178,11 @@ public class Main{
 	 			case 0:
 	 				menuOption = 0;
 	 				break;
+ 				case 1:
+ 					addPetToNursery();
+ 					break;
+
+
 	 		}
 
 	 	}
@@ -451,6 +464,60 @@ public class Main{
 
 	 	center.deleteAttendedPets();
 	 	System.out.println("All pets cared for have been removed");
+	 }
+
+
+
+	 ///////////////////////////////////////////////////////////////
+	 ///////////////////////////////////////////EXTENS TI3
+
+	 /**
+	  * 
+	  * 
+	  * 
+	 */
+
+	 public void addPetToNursery(){
+
+	 	String answer = "";
+
+	 	System.out.println("  ADD A PET TO THE NURSERY  ");
+
+	 	System.out.print("Specie: ");
+	 	String specie = reader.nextLine();
+
+	 	System.out.print("Name: ");
+	 	String name = reader.nextLine();
+
+	 	System.out.print("Age: ");
+	 	String age = reader.nextLine();
+
+	 	System.out.print("Race (Dog or cat): ");
+	 	String race = reader.nextLine();
+
+	 	String symptoms = "Sano";
+
+	 	System.out.println("\nEnter owner details: ");
+	 	
+	 	System.out.print("Name: ");
+	 	String nameOwn = reader.nextLine();
+
+	 	System.out.print("ID: ");
+	 	String idOwn = reader.nextLine();
+
+	 	System.out.print("Cellphone: ");
+	 	String phoneOwn = reader.nextLine();
+	 	
+	 	System.out.print("Address: ");
+	 	String addressOwn = reader.nextLine();
+	 	System.out.println();
+
+	 	answer = center.addPetToNursery()(specie, name, age, race, symptoms, Priority.CERO, Status.IN_NURSERY, nameOwn,
+	 							idOwn, phoneOwn, addressOwn);
+
+	 	System.out.println(answer);
+
+
 	 }
 
 	

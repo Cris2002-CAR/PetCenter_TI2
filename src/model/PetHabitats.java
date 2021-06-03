@@ -1,6 +1,6 @@
 package model;
 
-public class PetHabitats{
+public abstract class PetHabitats{
 
 	/**
 	Unique identifier of a habitat
