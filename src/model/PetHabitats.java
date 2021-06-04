@@ -35,14 +35,12 @@ public abstract class PetHabitats{
 	*@param width type String
 	*@param habitatStatus type HabitatStatus
 	*/
-	public PetHabitats(Pet pet, String habitatIdentifier, String hLength, String width, 
-		HabitatStatus habitatStatus){
+	public PetHabitats(String habitatIdentifier, String hLength, String width){
 
-		this.pet = pet;
 		this.habitatIdentifier = habitatIdentifier;
 		this.hLength = hLength;
 		this.width = width;
-		this.habitatStatus = habitatStatus; 
+		habitatStatus = HabitatStatus.V; 
 
 	}
 
@@ -88,6 +86,25 @@ public abstract class PetHabitats{
 
 	public void setHabitatStatus(HabitatStatus habitatStatus){
 		this.habitatStatus = habitatStatus;
+	}
+
+	//public abstract String showInfo();
+
+	public String showInfo(){
+
+		String out = "";
+
+		if(getHabitatStatus() == HabitatStatus.S){
+
+			String out = habitatIdentifier+" Condition: healthy ";
+		}
+		else{
+
+			String out = habitatIdentifier+" Condition: sick ";
+		}
+		
+
+		return out;
 	}
 
 }

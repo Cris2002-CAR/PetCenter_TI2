@@ -18,10 +18,10 @@ public class RabbitArea extends PetHabitats{
 	*
 	*
 	*/
-	public RabbitArea(Pet pet, String habitatIdentifier, String hLength, String width, 
-		HabitatStatus habitatStatus, String plantType, String plantsNumber){
+	public RabbitArea(String habitatIdentifier, String hLength, String width, 
+		String plantType, String plantsNumber){
 
-		super(pet, habitatIdentifier, hLength, width, habitatStatus);
+		super(habitatIdentifier, hLength, width);
 		this.plantType = plantType;
 		this.plantsNumber = plantsNumber;
 	}

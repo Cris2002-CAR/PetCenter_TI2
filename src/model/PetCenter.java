@@ -653,7 +653,7 @@ public class PetCenter{
 		}
 
 		if(!find){
-			out = "The pet wan not added";
+			out = "The pet was not added";
 		}
 		return out;
 	}
@@ -671,41 +671,41 @@ public class PetCenter{
 			for(int j=0; j<habitats[0].length; j++){
 				if(i>=MIN_CATROW && i<=MAX_CATROW){
 					if(j>=MIN_CATCOL && j<=MAX_CATCOL){
-						habitats[i][j] = new CatArea(null, "G"+catCount, "15", "15", HabitatStatus.V, "15", "20 KL");
+						habitats[i][j] = new CatArea("G"+catCount, "15", "15", "15", "20 KL");
 						catCount++;
 					}
 				}
 				else if(i>=MIN_DOGROW && i<=MAX_DOGROW){
 					if(j>=MIN_DOGCOL && j<=MAX_DOGCOL){
-						habitats[i][j] = new DogArea(null, "D"+dogCount, "25", "25", HabitatStatus.V, 5);
+						habitats[i][j] = new DogArea("D"+dogCount, "25", "25", 5);
 						dogCount++;
 					}
 				}
 				else if(i>=MIN_REPTILROW && i<=MAX_REPTILROW){
 					if(j>=MIN_REPTILCOL && j<=MAX_REPTILCOL){
 						if(reptilCount <=2){
-							habitats[i][j] = new ReptileArea(null, "R"+reptilCount, "10", "10", HabitatStatus.V, "Metal y vidrio", AquariumType.EARTH);
+							habitats[i][j] = new ReptileArea("R"+reptilCount, "10", "10", "Metal y vidrio", AquariumType.EARTH);
 							
 						}
 						else{
-							habitats[i][j] = new ReptileArea(null, "R"+reptilCount, "10", "10", HabitatStatus.V, "Metal y vidrio", AquariumType.AMPHIBIAN);
+							habitats[i][j] = new ReptileArea("R"+reptilCount, "10", "10","Metal y vidrio", AquariumType.AMPHIBIAN);
 						}
 						reptilCount++;
 					}
 				}
 				else if(i>=MIN_RABBITROW && i<=MAX_RABBITROW){
 					if(j>=MIN_RABBITCOL && j<=MAX_RABBITCOL){
-						habitats[i][j] = new RabbitArea(null, "C"+rabbitCount, "12", "12", HabitatStatus.V, "Savila", "10");
+						habitats[i][j] = new RabbitArea("C"+rabbitCount, "12", "12","Savila", "10");
 						rabbitCount++;
 					}
 				}
 				else if(i>=MIN_BIRDROW && i<=MAX_BIRDROW){
 					if(j>=MIN_BIRDCOL && j<=MAX_BIRDCOL){
 						if(birdCount<=2){
-							habitats[i][j] = new BirdArea(null, "B"+birdCount, "18", "18", HabitatStatus.V, "16", "5", CageType.GROUND_CAGE);
+							habitats[i][j] = new BirdArea("B"+birdCount, "18", "18", "16", "5", CageType.GROUND_CAGE);
 						}
 						else{
-							habitats[i][j] = new BirdArea(null, "B"+birdCount, "18", "18", HabitatStatus.V, "16", "5", CageType.GROUND_CAGE);
+							habitats[i][j] = new BirdArea("B"+birdCount, "18", "18", "16", "5", CageType.GROUND_CAGE);
 						}
 						birdCount++;
 					}
@@ -715,35 +715,49 @@ public class PetCenter{
 		}
 	}
 
+	
+
 	public String findPetInNursery(String name){
 
 		String out = "";
 
-		String area = "";
+		ArrayList<PetHabitats> habitat = findHabitats(name);
 
-		boolean find = false;
+		for(int i = 0; i<habitat.size(); i++){
+			out += habitat.get(i).showInfo()+"\n"; 
 
-		for(int i = 0; i<habitats.length && !find; i++){
-			for(int j = 0; j<habitats[0].length && !find; j++){
-				if(habitats[i][j].getPet().getName().equals(name)){
-					if(habitats[i][j] instanceof CatArea){
-						area = "cats";
+		}
 
+		return out;
+			
+	}
+
+	public ArrayList<PetHabitats> findHabitats(String name){
+
+		ArrayList<PetHabitats> habitat = new ArrayList<PetHabitats>();
+
+		for(int i = 0; i<habitats.length; i++){
+			for(int j = 0; j<habitats[0].length; j++){
+				if(habitats[i][j].getPet() != null){
+
+					if(habitats[i][j].getPet().getName().equals(name)){
+		
+						habitat.add(habitats[i][j]);
 					}
-					else if(habitats[i][j] instanceof CatArea){
-						area = "dogs";
-					}
-					else if()
-					
+
 				}
-				find = true;
-				out = "The pet is the nursery in the area "+area+" id"+habitats[i][j].getHabitatidentifier();
-
 			}
 		}
 
+		return habitat;				
+		
+
+
 	}
+		
+
+}
 
 
 	
-}
+

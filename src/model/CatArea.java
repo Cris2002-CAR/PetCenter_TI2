@@ -18,10 +18,10 @@ public class CatArea extends PetHabitats{
 	*Cat area construction method for creating cat living spaces
 	*
 	*/
-	public CatArea(Pet pet, String habitatIdentifier, String hLength, String width, 
-		HabitatStatus habitatStatus, String height, String maximumWeight){
+	public CatArea(String habitatIdentifier, String hLength, String width, 
+		 String height, String maximumWeight){
 
-		super(pet, habitatIdentifier, hLength, width, habitatStatus);
+		super(habitatIdentifier, hLength, width);
 		this.height = height;
 		this.maximumWeight = maximumWeight;
 	}

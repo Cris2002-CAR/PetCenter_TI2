@@ -19,10 +19,10 @@ public class ReptileArea extends PetHabitats{
 	*
 	*/
 
-	public ReptileArea(Pet pet, String habitatIdentifier, String hLength, String width, 
-		HabitatStatus habitatStatus, String aquariumMaterial, AquariumType aquarium){
+	public ReptileArea(String habitatIdentifier, String hLength, String width, 
+		 String aquariumMaterial, AquariumType aquarium){
 
-		super(pet, habitatIdentifier, hLength, width, habitatStatus);
+		super(habitatIdentifier, hLength, width);
 		this.aquariumMaterial = aquariumMaterial;
 		this.aquarium = aquarium;
 	}
@@ -43,5 +43,13 @@ public class ReptileArea extends PetHabitats{
 
 	public void setAquarium(AquariumType aquarium){
 		this.aquarium = aquarium;
+	}
+
+	@Override
+	public String showInfo(){
+
+		String out = super.showInfo();
+
+		return out;
 	}
 }

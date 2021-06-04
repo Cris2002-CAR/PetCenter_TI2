@@ -26,10 +26,10 @@ public class BirdArea extends PetHabitats{
 	*
 	*/
 
-	public BirdArea(Pet pet, String habitatIdentifier, String hLength, String width, 
-		HabitatStatus habitatStatus, String height, String maximumBirds, CageType cage){
+	public BirdArea(String habitatIdentifier, String hLength, String width, 
+		String height, String maximumBirds, CageType cage){
 
-		super(pet, habitatIdentifier, hLength, width, habitatStatus);
+		super(habitatIdentifier, hLength, width);
 		this.height = height;
 		this. maximumBirds = maximumBirds;
 		this.cage = cage;

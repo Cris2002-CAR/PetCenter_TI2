@@ -158,7 +158,9 @@ public class Main{
 	 	
 	 	while(menuOption != 0){
 	 		System.out.println("  \nPET NURSERY MENU  "  
-	 			+"\n0. Back to main menu");
+	 			+"\n0. Back to main menu" 
+	 			+"\n1. Add pet to the nursery"
+	 			+"\n2. Find a pet in the nursery");
 
 	 		System.out.print("Choose an option: ");
 	 		option = reader.nextInt();
@@ -173,9 +175,12 @@ public class Main{
  				case 1:
  					addPetToNursery();
  					break;
-				
+				case 2:
+					findPetInNursery();
+					break;
+				case 3:
 
-
+					break;
 	 		}
 
 	 	}
@@ -506,6 +511,20 @@ public class Main{
 	 	answer = center.addPetToNursery(specie, name, age, race, nameOwn, idOwn, phoneOwn, addressOwn);
 
 	 	System.out.println(answer);
+	 }
+
+	 public void findPetInNursery(){
+
+	 	String answer = "";
+
+	 	System.out.print("Please enter the name of the pet you want to search: ");
+	 	String name = reader.nextLine();
+
+	 	answer = center.findPetInNursery(name);
+
+	 	System.out.println(answer);
+
+	 	System.out.println();
 
 
 	 }
