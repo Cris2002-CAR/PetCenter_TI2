@@ -40,7 +40,8 @@ public abstract class PetHabitats{
 		this.habitatIdentifier = habitatIdentifier;
 		this.hLength = hLength;
 		this.width = width;
-		habitatStatus = HabitatStatus.V; 
+		habitatStatus = HabitatStatus.V;
+		pet = null; 
 
 	}
 
@@ -96,15 +97,17 @@ public abstract class PetHabitats{
 
 		if(getHabitatStatus() == HabitatStatus.S){
 
-			String out = habitatIdentifier+" Condition: healthy ";
+			out = habitatIdentifier+" Condition: healthy ";
 		}
 		else{
 
-			String out = habitatIdentifier+" Condition: sick ";
+			out = habitatIdentifier+" Condition: sick ";
 		}
 		
 
 		return out;
 	}
+
+	
 
 }

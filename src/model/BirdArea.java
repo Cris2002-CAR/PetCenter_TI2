@@ -62,4 +62,12 @@ public class BirdArea extends PetHabitats{
 		this.cage = cage;
 	}
 
+	@Override
+	public String showInfo(){
+
+		String out = super.showInfo();
+
+		return out;
+	}
+
 }

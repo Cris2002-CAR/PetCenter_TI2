@@ -160,7 +160,8 @@ public class Main{
 	 		System.out.println("  \nPET NURSERY MENU  "  
 	 			+"\n0. Back to main menu" 
 	 			+"\n1. Add pet to the nursery"
-	 			+"\n2. Find a pet in the nursery");
+	 			+"\n2. Find a pet in the nursery"
+	 			+"\n3. Print nursery map");
 
 	 		System.out.print("Choose an option: ");
 	 		option = reader.nextInt();
@@ -179,7 +180,7 @@ public class Main{
 					findPetInNursery();
 					break;
 				case 3:
-
+					printMap();
 					break;
 	 		}
 
@@ -475,6 +476,7 @@ public class Main{
 	  * 
 	 */
 
+
 	 public void addPetToNursery(){
 
 	 	String answer = "";
@@ -513,6 +515,7 @@ public class Main{
 	 	System.out.println(answer);
 	 }
 
+	 
 	 public void findPetInNursery(){
 
 	 	String answer = "";
@@ -525,8 +528,12 @@ public class Main{
 	 	System.out.println(answer);
 
 	 	System.out.println();
+	 }
+	 
 
+	 public void printMap(){
 
+	 	System.out.println(center.printMap());
 	 }
 
 	

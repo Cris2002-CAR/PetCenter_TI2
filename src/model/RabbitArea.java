@@ -43,4 +43,12 @@ public class RabbitArea extends PetHabitats{
 	public void setPlantType(String plantType){
 		this.plantType = plantType;
 	}
+
+	@Override
+	public String showInfo(){
+
+		String out = super.showInfo();
+
+		return out;
+	}
 }

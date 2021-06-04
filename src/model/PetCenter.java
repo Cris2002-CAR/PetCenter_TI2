@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class PetCenter{
 
 	/**
@@ -33,6 +35,7 @@ public class PetCenter{
 	private Pet[] pets;
 
 	//////////////////////////EXTENDS TI3 attributes
+
 
 	////////////////////Constants for limits
 	private final int MIN_CATROW = 0;
@@ -716,7 +719,6 @@ public class PetCenter{
 	}
 
 	
-
 	public String findPetInNursery(String name){
 
 		String out = "";
@@ -738,21 +740,30 @@ public class PetCenter{
 
 		for(int i = 0; i<habitats.length; i++){
 			for(int j = 0; j<habitats[0].length; j++){
-				if(habitats[i][j].getPet() != null){
-
+				if(habitats[i][j] != null){
 					if(habitats[i][j].getPet().getName().equals(name)){
-		
 						habitat.add(habitats[i][j]);
 					}
-
 				}
 			}
 		}
-
 		return habitat;				
-		
+	}
 
+	
+	public String printMap(){
 
+		String out = "";
+
+		for(int i = 0; i<habitats.length; i++){
+			for(int j = 0; j<habitats[0].length; j++){
+				if(habitats[i][j] != null){
+					out += habitats[i][j].getHabitatidentifier()+""+habitats[i][j].getHabitatStatus()+" - "+"\n";
+				}	
+			}
+		}
+
+		return out;
 	}
 		
 

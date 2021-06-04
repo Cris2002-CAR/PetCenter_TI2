@@ -29,4 +29,12 @@ public class DogArea extends PetHabitats{
 	public void setToysNumbers(int toyNumbers){
 		this.toyNumbers = toyNumbers;
 	}
+
+	@Override
+	public String showInfo(){
+
+		String out = super.showInfo();
+
+		return out;
+	}
 }

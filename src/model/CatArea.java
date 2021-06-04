@@ -45,4 +45,12 @@ public class CatArea extends PetHabitats{
 	public void setMaximumWeight(String maximumWeight){
 		this.maximumWeight = maximumWeight;
 	}
+
+	@Override
+	public String showInfo(){
+
+		String out = super.showInfo();
+
+		return out;
+	}
 }
