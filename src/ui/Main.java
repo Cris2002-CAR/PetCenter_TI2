@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 import model.PetCenter;
 
-import model.PetNursery;
-
 import model.Priority;
 
 import model.Status;
@@ -25,11 +23,6 @@ public class Main{
 	private PetCenter center;
 
 	/**
-	Relationship with the PetNursery class for access to the center's nursery
-	*/
-	private PetNursery nursery;
-
-	/**
 	Global data type boolean to close the menu with the condition required by the program.
 	*/
 	private boolean continued = true;
@@ -41,7 +34,6 @@ public class Main{
 	public Main(){
 
 		center = new PetCenter();
-		nursery = new PetNursery();
 	}
 
 	public static void main (String[] args){
@@ -181,6 +173,7 @@ public class Main{
  				case 1:
  					addPetToNursery();
  					break;
+				
 
 
 	 		}
@@ -495,8 +488,6 @@ public class Main{
 	 	System.out.print("Race (Dog or cat): ");
 	 	String race = reader.nextLine();
 
-	 	String symptoms = "Sano";
-
 	 	System.out.println("\nEnter owner details: ");
 	 	
 	 	System.out.print("Name: ");
@@ -512,8 +503,7 @@ public class Main{
 	 	String addressOwn = reader.nextLine();
 	 	System.out.println();
 
-	 	answer = center.addPetToNursery()(specie, name, age, race, symptoms, Priority.CERO, Status.IN_NURSERY, nameOwn,
-	 							idOwn, phoneOwn, addressOwn);
+	 	answer = center.addPetToNursery(specie, name, age, race, nameOwn, idOwn, phoneOwn, addressOwn);
 
 	 	System.out.println(answer);
 

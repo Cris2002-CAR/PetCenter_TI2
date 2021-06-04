@@ -77,6 +77,18 @@ public class Pet{
 		
 	}
 
+	public Pet(String specie, String name, String age, String race, Owner owner){
+
+		this.specie = specie;
+		this.name = name;
+		this.age = age;
+		this.race = race;
+		this.owner = owner;
+		priority = null;
+		symptoms = null;
+		status = null;
+	}
+
 	////////////////////////Gets
 
 	/**

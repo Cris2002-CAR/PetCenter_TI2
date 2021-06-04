@@ -77,6 +77,7 @@ public class PetCenter{
 		numVeterinaries = 0;
 		numPets = 0;
 		habitats = new PetHabitats[6][5];
+		setUpHabitats();
 
 	}
 	//////////////////Gets
@@ -576,6 +577,173 @@ public class PetCenter{
 	}
 
 	////////////////EXTENS TI3 Methods
+
+	
+
+	public String addPetToNursery(String specie, String name, String age, String race, String nameOwn, String idOwn, 
+		String phoneOwn, String addressOwn){
+
+		String out = "";
+
+		boolean find = false;
+
+		Owner own = new Owner(nameOwn, idOwn, phoneOwn, addressOwn);
+
+		Pet pet = new Pet(specie, name, age, race, own);
+
+		if(pet.getSpecie().equalsIgnoreCase("gato")){
+			for(int i = MIN_CATROW; i<= MAX_CATROW && !find; i++){
+				for(int j = MIN_CATCOL; j <= MAX_CATCOL && !find; j++){
+					if(habitats[i][j].getPet() == null){
+						habitats[i][j].setPet(pet);
+						habitats[i][j].setHabitatStatus(HabitatStatus.S);
+						out = "The cat was add in guacal "+habitats[i][j].getHabitatidentifier();
+						find = true;
+					}
+				}
+			}
+		}
+		else if(pet.getSpecie().equalsIgnoreCase("perro")){
+			for(int i = MIN_DOGROW; i<= MAX_DOGROW && !find; i++){
+				for(int j = MIN_DOGCOL; j <= MAX_DOGCOL && !find; j++){
+					if(habitats[i][j].getPet() == null){
+						habitats[i][j].setPet(pet);
+						habitats[i][j].setHabitatStatus(HabitatStatus.S);
+						out = "The dog was add in house "+habitats[i][j].getHabitatidentifier();
+						find = true;
+					}
+				}
+			}
+		}
+		else if(pet.getSpecie().equalsIgnoreCase("reptil")){
+			for(int i = MIN_REPTILROW; i<= MAX_REPTILROW && !find; i++){
+				for(int j = MIN_REPTILCOL; j <= MAX_REPTILCOL && !find; j++){
+					if(habitats[i][j].getPet() == null){
+						habitats[i][j].setPet(pet);
+						habitats[i][j].setHabitatStatus(HabitatStatus.S);
+						out = "The reptil was add in aquarium "+habitats[i][j].getHabitatidentifier();
+						find = true;
+					}
+				}
+			}
+		}
+		else if(pet.getSpecie().equalsIgnoreCase("conejo")){
+			for(int i = MIN_RABBITROW; i<= MAX_RABBITROW && !find; i++){
+				for(int j = MIN_RABBITCOL; j <= MAX_RABBITCOL && !find; j++){
+					if(habitats[i][j].getPet() == null){
+						habitats[i][j].setPet(pet);
+						habitats[i][j].setHabitatStatus(HabitatStatus.S);
+						out = "The rabbit was add in house "+habitats[i][j].getHabitatidentifier();
+						find = true;
+					}
+				}
+			}
+		}
+		else if(pet.getSpecie().equalsIgnoreCase("bird")){
+			for(int i = MIN_BIRDROW; i<= MAX_BIRDROW && !find; i++){
+				for(int j = MIN_BIRDCOL; j <= MAX_BIRDCOL && !find; j++){
+					if(habitats[i][j].getPet() == null){
+						habitats[i][j].setPet(pet);
+						habitats[i][j].setHabitatStatus(HabitatStatus.S);
+						out = "The bird was add in cage "+habitats[i][j].getHabitatidentifier();
+						find = true;
+					}
+				}
+			}
+		}
+
+		if(!find){
+			out = "The pet wan not added";
+		}
+		return out;
+	}
+
+
+	public void setUpHabitats(){
+
+		int catCount = 1;
+		int dogCount = 1;
+		int reptilCount =1;
+		int rabbitCount = 1;
+		int birdCount = 1;
+
+		for(int i = 0; i<habitats.length;i++){
+			for(int j=0; j<habitats[0].length; j++){
+				if(i>=MIN_CATROW && i<=MAX_CATROW){
+					if(j>=MIN_CATCOL && j<=MAX_CATCOL){
+						habitats[i][j] = new CatArea(null, "G"+catCount, "15", "15", HabitatStatus.V, "15", "20 KL");
+						catCount++;
+					}
+				}
+				else if(i>=MIN_DOGROW && i<=MAX_DOGROW){
+					if(j>=MIN_DOGCOL && j<=MAX_DOGCOL){
+						habitats[i][j] = new DogArea(null, "D"+dogCount, "25", "25", HabitatStatus.V, 5);
+						dogCount++;
+					}
+				}
+				else if(i>=MIN_REPTILROW && i<=MAX_REPTILROW){
+					if(j>=MIN_REPTILCOL && j<=MAX_REPTILCOL){
+						if(reptilCount <=2){
+							habitats[i][j] = new ReptileArea(null, "R"+reptilCount, "10", "10", HabitatStatus.V, "Metal y vidrio", AquariumType.EARTH);
+							
+						}
+						else{
+							habitats[i][j] = new ReptileArea(null, "R"+reptilCount, "10", "10", HabitatStatus.V, "Metal y vidrio", AquariumType.AMPHIBIAN);
+						}
+						reptilCount++;
+					}
+				}
+				else if(i>=MIN_RABBITROW && i<=MAX_RABBITROW){
+					if(j>=MIN_RABBITCOL && j<=MAX_RABBITCOL){
+						habitats[i][j] = new RabbitArea(null, "C"+rabbitCount, "12", "12", HabitatStatus.V, "Savila", "10");
+						rabbitCount++;
+					}
+				}
+				else if(i>=MIN_BIRDROW && i<=MAX_BIRDROW){
+					if(j>=MIN_BIRDCOL && j<=MAX_BIRDCOL){
+						if(birdCount<=2){
+							habitats[i][j] = new BirdArea(null, "B"+birdCount, "18", "18", HabitatStatus.V, "16", "5", CageType.GROUND_CAGE);
+						}
+						else{
+							habitats[i][j] = new BirdArea(null, "B"+birdCount, "18", "18", HabitatStatus.V, "16", "5", CageType.GROUND_CAGE);
+						}
+						birdCount++;
+					}
+				}
+
+			}
+		}
+	}
+
+	public String findPetInNursery(String name){
+
+		String out = "";
+
+		String area = "";
+
+		boolean find = false;
+
+		for(int i = 0; i<habitats.length && !find; i++){
+			for(int j = 0; j<habitats[0].length && !find; j++){
+				if(habitats[i][j].getPet().getName().equals(name)){
+					if(habitats[i][j] instanceof CatArea){
+						area = "cats";
+
+					}
+					else if(habitats[i][j] instanceof CatArea){
+						area = "dogs";
+					}
+					else if()
+					
+				}
+				find = true;
+				out = "The pet is the nursery in the area "+area+" id"+habitats[i][j].getHabitatidentifier();
+
+			}
+		}
+
+	}
+
 
 	
 }

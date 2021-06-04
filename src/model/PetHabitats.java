@@ -5,24 +5,24 @@ public abstract class PetHabitats{
 	/**
 	Unique identifier of a habitat
 	*/
-	protected String habitatIdentifier;
+	private String habitatIdentifier;
 
 	/**
 	Variable of the length of the habitat
 	*/
-	protected String hLength;
+	private String hLength;
 
 	/**
 	variable of habitat width
 	*/
-	protected String width;
+	private String width;
 
 
 	///////////////Relations
 
 	protected HabitatStatus habitatStatus;
 
-
+	private Pet pet;
 
 	/////////////Construtor
 
@@ -38,6 +38,7 @@ public abstract class PetHabitats{
 	public PetHabitats(Pet pet, String habitatIdentifier, String hLength, String width, 
 		HabitatStatus habitatStatus){
 
+		this.pet = pet;
 		this.habitatIdentifier = habitatIdentifier;
 		this.hLength = hLength;
 		this.width = width;
@@ -85,7 +86,7 @@ public abstract class PetHabitats{
 		this.width = width;
 	}
 
-	public void getHabitatStatus(HabitatStatus habitatStatus){
+	public void setHabitatStatus(HabitatStatus habitatStatus){
 		this.habitatStatus = habitatStatus;
 	}
 
