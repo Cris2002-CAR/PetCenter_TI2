@@ -835,8 +835,13 @@ public class PetCenter{
 		ArrayList<PetHabitats> habitat = findHabitats(name);
 
 		for(int i = 0; i<habitat.size(); i++){
-			out += habitat.get(i).showInfo()+"\n"; 
+			out +="La mastota esta en: "+habitat.get(i).showInfo()+"\n"; 
 
+		}
+
+		if(habitat.size() == 0){
+
+			out = "The pet is not in the nursery";
 		}
 
 		return out;
@@ -849,7 +854,7 @@ public class PetCenter{
 
 		for(int i = 0; i<habitats.length; i++){
 			for(int j = 0; j<habitats[0].length; j++){
-				if(habitats[i][j] != null){
+				if(habitats[i][j].getPet() != null){
 					if(habitats[i][j].getPet().getName().equals(name)){
 						habitat.add(habitats[i][j]);
 					}
