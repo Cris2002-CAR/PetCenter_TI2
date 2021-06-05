@@ -36,6 +36,8 @@ public class PetCenter{
 
 	//////////////////////////EXTENDS TI3 attributes
 
+	private ArrayList <Pet> listHpets;
+
 
 	////////////////////Constants for limits
 	private final int MIN_CATROW = 0;
@@ -81,6 +83,8 @@ public class PetCenter{
 		numPets = 0;
 		habitats = new PetHabitats[6][5];
 		setUpHabitats();
+		listHpets = new ArrayList<Pet>();
+		hopitalizationPet();
 
 	}
 	//////////////////Gets
@@ -401,6 +405,7 @@ public class PetCenter{
 							if(pet.getName().equals(namePet)){
 
 								pet.setStatus(status);
+								pet.setPriority(Priority.CERO);
 								veterinaries[i].setAvailable(true);
 								System.out.println(pet.getName()+" pet has successfully completed the consultation");
 								find = true;
@@ -581,7 +586,97 @@ public class PetCenter{
 
 	////////////////EXTENS TI3 Methods
 
-	
+	public String hopitalizationPet(){
+
+		String out = "";
+
+		boolean find = false;
+		boolean find2 = false;
+
+		for(int i = 0; i<pets.length && !find; i++){
+			if(pets[i] != null){
+				if(pets[i].getStatus().equals(Status.HOSPITALIZATION)){
+					listHpets.add(pets[i]);
+					find = true;
+
+				}
+			}
+		}
+		if(find){
+			for(int a = 0; a<listHpets.size() && !find2; a++){
+
+				if(listHpets.get(a).getSpecie().equalsIgnoreCase("gato") || listHpets.get(a).getSpecie().equalsIgnoreCase("cat")){
+					for(int i = MIN_CATROW; i<= MAX_CATROW && !find2; i++){
+						for(int j = MIN_CATCOL; j <= MAX_CATCOL && !find2; j++){
+							if(habitats[i][j].getPet() == null){
+								habitats[i][j].setPet(listHpets.get(a));
+								habitats[i][j].setHabitatStatus(HabitatStatus.E);
+								out = "The cat "+listHpets.get(a).getName()+" was add in guacal "+habitats[i][j].getHabitatidentifier();
+								find2 = true;
+							}
+						}
+					}
+				}
+				else if(listHpets.get(a).getSpecie().equalsIgnoreCase("perro") || listHpets.get(a).getSpecie().equalsIgnoreCase("dog")){
+					for(int i = MIN_DOGROW; i<= MAX_DOGROW && !find2; i++){
+						for(int j = MIN_DOGCOL; j <= MAX_DOGCOL && !find2; j++){
+							if(habitats[i][j].getPet() == null){
+								habitats[i][j].setPet(listHpets.get(a));
+								habitats[i][j].setHabitatStatus(HabitatStatus.E);
+								out = "The dog "+listHpets.get(a).getName()+" was add in house "+habitats[i][j].getHabitatidentifier();
+								find2 = true;
+							}
+						}
+					}
+				}
+				else if(listHpets.get(a).getSpecie().equalsIgnoreCase("reptil")){
+					for(int i = MIN_REPTILROW; i<= MAX_REPTILROW && !find2; i++){
+						for(int j = MIN_REPTILCOL; j <= MAX_REPTILCOL && !find2; j++){
+							if(habitats[i][j].getPet() == null){
+								habitats[i][j].setPet(listHpets.get(a));
+								habitats[i][j].setHabitatStatus(HabitatStatus.E);
+								out = "The reptil "+listHpets.get(a).getName()+" was add in aquarium "+habitats[i][j].getHabitatidentifier();
+								find2 = true;
+							}
+						}
+					}
+				}
+				else if(listHpets.get(a).getSpecie().equalsIgnoreCase("conejo") || listHpets.get(a).getSpecie().equalsIgnoreCase("rabbit")){
+					for(int i = MIN_RABBITROW; i<= MAX_RABBITROW && !find2; i++){
+						for(int j = MIN_RABBITCOL; j <= MAX_RABBITCOL && !find2; j++){
+							if(habitats[i][j].getPet() == null){
+								habitats[i][j].setPet(listHpets.get(a));
+								habitats[i][j].setHabitatStatus(HabitatStatus.E);
+								out = "The rabbit "+listHpets.get(a).getName()+" was add in house "+habitats[i][j].getHabitatidentifier();
+								find2 = true;
+							}
+						}
+					}
+				}
+				else if(listHpets.get(a).getSpecie().equalsIgnoreCase("bird") || listHpets.get(a).getSpecie().equalsIgnoreCase("ave")){
+					for(int i = MIN_BIRDROW; i<= MAX_BIRDROW && !find2; i++){
+						for(int j = MIN_BIRDCOL; j <= MAX_BIRDCOL && !find2; j++){
+							if(habitats[i][j].getPet() == null){
+								habitats[i][j].setPet(listHpets.get(a));
+								habitats[i][j].setHabitatStatus(HabitatStatus.E);
+								out = "The bird "+listHpets.get(a).getName()+" was add in cage "+habitats[i][j].getHabitatidentifier();
+								find2 = true;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		if(!find){
+			out ="There ara not hospitalization pets";
+		}
+		else if(!find2){
+			out = "The area is full";
+		}
+
+		return out;
+	}
 
 	public String addPetToNursery(String specie, String name, String age, String race, String nameOwn, String idOwn, 
 		String phoneOwn, String addressOwn){
@@ -594,7 +689,7 @@ public class PetCenter{
 
 		Pet pet = new Pet(specie, name, age, race, own);
 
-		if(pet.getSpecie().equalsIgnoreCase("gato")){
+		if(pet.getSpecie().equalsIgnoreCase("gato") || pet.getSpecie().equalsIgnoreCase("cat")){
 			for(int i = MIN_CATROW; i<= MAX_CATROW && !find; i++){
 				for(int j = MIN_CATCOL; j <= MAX_CATCOL && !find; j++){
 					if(habitats[i][j].getPet() == null){
@@ -606,7 +701,7 @@ public class PetCenter{
 				}
 			}
 		}
-		else if(pet.getSpecie().equalsIgnoreCase("perro")){
+		else if(pet.getSpecie().equalsIgnoreCase("perro") || pet.getSpecie().equalsIgnoreCase("dog")){
 			for(int i = MIN_DOGROW; i<= MAX_DOGROW && !find; i++){
 				for(int j = MIN_DOGCOL; j <= MAX_DOGCOL && !find; j++){
 					if(habitats[i][j].getPet() == null){
@@ -630,7 +725,7 @@ public class PetCenter{
 				}
 			}
 		}
-		else if(pet.getSpecie().equalsIgnoreCase("conejo")){
+		else if(pet.getSpecie().equalsIgnoreCase("conejo") ||  pet.getSpecie().equalsIgnoreCase("rabbit")){
 			for(int i = MIN_RABBITROW; i<= MAX_RABBITROW && !find; i++){
 				for(int j = MIN_RABBITCOL; j <= MAX_RABBITCOL && !find; j++){
 					if(habitats[i][j].getPet() == null){
@@ -642,7 +737,7 @@ public class PetCenter{
 				}
 			}
 		}
-		else if(pet.getSpecie().equalsIgnoreCase("bird")){
+		else if(pet.getSpecie().equalsIgnoreCase("bird") || pet.getSpecie().equalsIgnoreCase("ave")){
 			for(int i = MIN_BIRDROW; i<= MAX_BIRDROW && !find; i++){
 				for(int j = MIN_BIRDCOL; j <= MAX_BIRDCOL && !find; j++){
 					if(habitats[i][j].getPet() == null){

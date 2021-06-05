@@ -99,7 +99,8 @@ public class Main{
 	 			+"\n4. Remove a pet"
 	 			+"\n5. Start a veterinary consultation"
 	 			+"\n6. Finalize a veterinary consultation"
-	 			+"\n7. Show the number of pets that have not been cared for");
+	 			+"\n7. Show the number of pets that have not been cared for"
+	 			+"\n8. Send pet to the nursery");
 	 			
 	 		System.out.print("Choose an option: ");
 	 		option = reader.nextInt();
@@ -141,6 +142,10 @@ public class Main{
 	 			System.out.println("___________________________________________________________________________");
 	 			notAttendedPets();
 	 			break;
+
+	 			case 8:
+	 				hopitalizationPet();
+	 				break;
 
 	 			case 0:
 	 			menuOption = 0;
@@ -534,6 +539,16 @@ public class Main{
 	 public void printMap(){
 
 	 	center.printMap();
+	 }
+
+	 public void hopitalizationPet(){
+
+	 	String out = "";
+
+	 	out = center.hopitalizationPet();
+
+	 	System.out.println(out);
+
 	 }
 
 	
