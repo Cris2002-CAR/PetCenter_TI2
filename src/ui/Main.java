@@ -533,7 +533,7 @@ public class Main{
 
 	 public void printMap(){
 
-	 	System.out.println(center.printMap());
+	 	center.printMap();
 	 }
 
 	

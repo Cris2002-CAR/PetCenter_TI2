@@ -25,6 +25,7 @@ public class ReptileArea extends PetHabitats{
 		super(habitatIdentifier, hLength, width);
 		this.aquariumMaterial = aquariumMaterial;
 		this.aquarium = aquarium;
+		
 	}
 
 	///////////////////gets

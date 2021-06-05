@@ -13,8 +13,8 @@ public class DogArea extends PetHabitats{
 	*
 	*
 	*/
-	public DogArea(String habitatIdentifier, String hLength, String width, 
-		 int toyNumbers){
+	public DogArea( String habitatIdentifier, String hLength, String width, 
+		int toyNumbers){
 
 		super(habitatIdentifier, hLength, width);
 		this.toyNumbers = toyNumbers;

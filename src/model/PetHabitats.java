@@ -95,6 +95,7 @@ public abstract class PetHabitats{
 
 		String out = "";
 
+		/*
 		if(getHabitatStatus() == HabitatStatus.S){
 
 			out = habitatIdentifier+" Condition: healthy ";
@@ -103,10 +104,15 @@ public abstract class PetHabitats{
 
 			out = habitatIdentifier+" Condition: sick ";
 		}
+		*/
+
+		out = habitatIdentifier+""+habitatStatus;
 		
 
 		return out;
 	}
+
+	//public abstract PetHabitats setUpHabitats();
 
 	
 

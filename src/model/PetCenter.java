@@ -660,63 +660,77 @@ public class PetCenter{
 		}
 		return out;
 	}
-
-
+	
 	public void setUpHabitats(){
+		setUpCat();
+		setUpDog();
+		setUpReptil();
+		setUpRabbit();
+		setUpBird();
+		
+	}
+	
+	public void setUpCat(){
 
 		int catCount = 1;
-		int dogCount = 1;
-		int reptilCount =1;
-		int rabbitCount = 1;
-		int birdCount = 1;
 
-		for(int i = 0; i<habitats.length;i++){
-			for(int j=0; j<habitats[0].length; j++){
-				if(i>=MIN_CATROW && i<=MAX_CATROW){
-					if(j>=MIN_CATCOL && j<=MAX_CATCOL){
-						habitats[i][j] = new CatArea("G"+catCount, "15", "15", "15", "20 KL");
-						catCount++;
-					}
-				}
-				else if(i>=MIN_DOGROW && i<=MAX_DOGROW){
-					if(j>=MIN_DOGCOL && j<=MAX_DOGCOL){
-						habitats[i][j] = new DogArea("D"+dogCount, "25", "25", 5);
-						dogCount++;
-					}
-				}
-				else if(i>=MIN_REPTILROW && i<=MAX_REPTILROW){
-					if(j>=MIN_REPTILCOL && j<=MAX_REPTILCOL){
-						if(reptilCount <=2){
-							habitats[i][j] = new ReptileArea("R"+reptilCount, "10", "10", "Metal y vidrio", AquariumType.EARTH);
-							
-						}
-						else{
-							habitats[i][j] = new ReptileArea("R"+reptilCount, "10", "10","Metal y vidrio", AquariumType.AMPHIBIAN);
-						}
-						reptilCount++;
-					}
-				}
-				else if(i>=MIN_RABBITROW && i<=MAX_RABBITROW){
-					if(j>=MIN_RABBITCOL && j<=MAX_RABBITCOL){
-						habitats[i][j] = new RabbitArea("C"+rabbitCount, "12", "12","Savila", "10");
-						rabbitCount++;
-					}
-				}
-				else if(i>=MIN_BIRDROW && i<=MAX_BIRDROW){
-					if(j>=MIN_BIRDCOL && j<=MAX_BIRDCOL){
-						if(birdCount<=2){
-							habitats[i][j] = new BirdArea("B"+birdCount, "18", "18", "16", "5", CageType.GROUND_CAGE);
-						}
-						else{
-							habitats[i][j] = new BirdArea("B"+birdCount, "18", "18", "16", "5", CageType.GROUND_CAGE);
-						}
-						birdCount++;
-					}
-				}
-
+		for(int i = MIN_CATROW; i<= MAX_CATROW; i++){
+			for(int j = MIN_CATCOL; j <= MAX_CATCOL; j++){
+				habitats[i][j] = new CatArea("G"+catCount, "15", "15", "15", "20 KL");
+				catCount++;
+				
 			}
 		}
 	}
+
+	public void setUpDog(){
+
+		int dogCount = 1;
+
+		for(int i = MIN_DOGROW; i<= MAX_DOGROW; i++){
+			for(int j = MIN_DOGCOL; j <= MAX_DOGCOL; j++){
+				habitats[i][j] = new DogArea("D"+dogCount, "25", "25", 5);
+				dogCount++;
+			}
+		}
+	}
+
+	public void setUpReptil(){
+
+		int reptilCount = 1;
+
+		for(int i = MIN_REPTILROW; i<= MAX_REPTILROW; i++){
+			for(int j = MIN_REPTILCOL; j <= MAX_REPTILCOL; j++){		
+				habitats[i][j] = new ReptileArea("R"+reptilCount, "10", "10", "Metal y vidrio", AquariumType.EARTH);
+				reptilCount++;
+			}
+		}
+	}
+
+	public void setUpRabbit(){
+
+		int rabbitCount = 1;
+
+		for(int i = MIN_RABBITROW; i<= MAX_RABBITROW; i++){
+			for(int j = MIN_RABBITCOL; j <= MAX_RABBITCOL; j++){
+				habitats[i][j] = new RabbitArea("C"+rabbitCount, "12", "12","Savila", "10");
+				rabbitCount++;		
+			}
+		}
+	}
+
+	public void setUpBird(){
+
+		int birdCount = 1;
+
+		for(int i = MIN_BIRDROW; i<= MAX_BIRDROW; i++){
+			for(int j = MIN_BIRDCOL; j <= MAX_BIRDCOL; j++){		
+				habitats[i][j] = new BirdArea("B"+birdCount, "18", "18", "16", "5", CageType.GROUND_CAGE); 
+				birdCount++;
+			}
+		}
+	}
+
 
 	
 	public String findPetInNursery(String name){
@@ -751,19 +765,18 @@ public class PetCenter{
 	}
 
 	
-	public String printMap(){
+	public void printMap(){
 
 		String out = "";
 
 		for(int i = 0; i<habitats.length; i++){
 			for(int j = 0; j<habitats[0].length; j++){
 				if(habitats[i][j] != null){
-					out += habitats[i][j].getHabitatidentifier()+""+habitats[i][j].getHabitatStatus()+" - "+"\n";
+					System.out.print(habitats[i][j].showInfo()+"-");
 				}	
 			}
+			System.out.println();
 		}
-
-		return out;
 	}
 		
 
