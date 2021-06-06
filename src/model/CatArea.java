@@ -54,15 +54,5 @@ public class CatArea extends PetHabitats{
 		return out;
 	}
 
-	/*
-	@Override
-	public CatArea setUpHabitats(){
-
-		int catCount = 1;
-
-	 	CatArea cat = new CatArea("G"+catCount,"15","15","15");
-
-	 	catCount++; 
-	}
-	*/
+	
 }

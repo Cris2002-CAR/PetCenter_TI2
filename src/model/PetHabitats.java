@@ -95,24 +95,22 @@ public abstract class PetHabitats{
 
 		String out = "";
 
-		/*
-		if(getHabitatStatus() == HabitatStatus.S){
-
-			out = habitatIdentifier+" Condition: healthy ";
-		}
-		else{
-
-			out = habitatIdentifier+" Condition: sick ";
-		}
-		*/
-
 		out = habitatIdentifier+""+habitatStatus;
-		
 
 		return out;
 	}
 
-	//public abstract PetHabitats setUpHabitats();
+	public String showHabitat(){
+
+		String out = "";
+
+		if(habitatStatus == HabitatStatus.V){
+
+			out = "Habitat: "+habitatIdentifier+"\nLength: "+"\nWidth: "+width;
+		}
+
+		return out;
+	}
 
 	
 

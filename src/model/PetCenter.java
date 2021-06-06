@@ -38,6 +38,17 @@ public class PetCenter{
 
 	private ArrayList <Pet> listHpets;
 
+	public double numCats;
+	public double numDogs;
+	public double numReptils;
+	public double numRabbits;
+	public double numBirds;
+
+	public double healthyPets;
+	public double sickPets;
+
+	public double totalPets;
+
 
 	////////////////////Constants for limits
 	private final int MIN_CATROW = 0;
@@ -85,6 +96,17 @@ public class PetCenter{
 		setUpHabitats();
 		listHpets = new ArrayList<Pet>();
 		hopitalizationPet();
+
+		numCats = 0;
+		numDogs = 0;
+	    numReptils = 0;
+	    numRabbits = 0;
+		numBirds = 0;
+
+		healthyPets = 0;
+		sickPets = 0;
+
+		totalPets = 0;
 
 	}
 	//////////////////Gets
@@ -612,6 +634,9 @@ public class PetCenter{
 								habitats[i][j].setPet(listHpets.get(a));
 								habitats[i][j].setHabitatStatus(HabitatStatus.E);
 								out = "The cat "+listHpets.get(a).getName()+" was add in guacal "+habitats[i][j].getHabitatidentifier();
+								numCats++;
+								sickPets++;
+								totalPets++;
 								find2 = true;
 							}
 						}
@@ -624,6 +649,9 @@ public class PetCenter{
 								habitats[i][j].setPet(listHpets.get(a));
 								habitats[i][j].setHabitatStatus(HabitatStatus.E);
 								out = "The dog "+listHpets.get(a).getName()+" was add in house "+habitats[i][j].getHabitatidentifier();
+								numDogs++;
+								sickPets++;
+								totalPets++;
 								find2 = true;
 							}
 						}
@@ -636,6 +664,9 @@ public class PetCenter{
 								habitats[i][j].setPet(listHpets.get(a));
 								habitats[i][j].setHabitatStatus(HabitatStatus.E);
 								out = "The reptil "+listHpets.get(a).getName()+" was add in aquarium "+habitats[i][j].getHabitatidentifier();
+								numReptils++;
+								sickPets++;
+								totalPets++;
 								find2 = true;
 							}
 						}
@@ -648,6 +679,9 @@ public class PetCenter{
 								habitats[i][j].setPet(listHpets.get(a));
 								habitats[i][j].setHabitatStatus(HabitatStatus.E);
 								out = "The rabbit "+listHpets.get(a).getName()+" was add in house "+habitats[i][j].getHabitatidentifier();
+								numRabbits++;
+								sickPets++;
+								totalPets++;
 								find2 = true;
 							}
 						}
@@ -660,6 +694,9 @@ public class PetCenter{
 								habitats[i][j].setPet(listHpets.get(a));
 								habitats[i][j].setHabitatStatus(HabitatStatus.E);
 								out = "The bird "+listHpets.get(a).getName()+" was add in cage "+habitats[i][j].getHabitatidentifier();
+								numBirds++;
+								sickPets++;
+								totalPets++;
 								find2 = true;
 							}
 						}
@@ -696,6 +733,9 @@ public class PetCenter{
 						habitats[i][j].setPet(pet);
 						habitats[i][j].setHabitatStatus(HabitatStatus.S);
 						out = "The cat was add in guacal "+habitats[i][j].getHabitatidentifier();
+						numCats++;
+						healthyPets++;
+						totalPets++;
 						find = true;
 					}
 				}
@@ -708,6 +748,9 @@ public class PetCenter{
 						habitats[i][j].setPet(pet);
 						habitats[i][j].setHabitatStatus(HabitatStatus.S);
 						out = "The dog was add in house "+habitats[i][j].getHabitatidentifier();
+						numDogs++;
+						healthyPets++;
+						totalPets++;
 						find = true;
 					}
 				}
@@ -721,6 +764,9 @@ public class PetCenter{
 						habitats[i][j].setHabitatStatus(HabitatStatus.S);
 						out = "The reptil was add in aquarium "+habitats[i][j].getHabitatidentifier();
 						find = true;
+						numReptils++;
+						healthyPets++;
+						totalPets++;
 					}
 				}
 			}
@@ -732,6 +778,9 @@ public class PetCenter{
 						habitats[i][j].setPet(pet);
 						habitats[i][j].setHabitatStatus(HabitatStatus.S);
 						out = "The rabbit was add in house "+habitats[i][j].getHabitatidentifier();
+						numRabbits++;
+						healthyPets++;
+						totalPets++;
 						find = true;
 					}
 				}
@@ -744,6 +793,9 @@ public class PetCenter{
 						habitats[i][j].setPet(pet);
 						habitats[i][j].setHabitatStatus(HabitatStatus.S);
 						out = "The bird was add in cage "+habitats[i][j].getHabitatidentifier();
+						numBirds++;
+						healthyPets++;
+						totalPets++;
 						find = true;
 					}
 				}
@@ -878,6 +930,64 @@ public class PetCenter{
 			System.out.println();
 		}
 	}
+
+	public String showHabitatInformation(String habitatIdentifier,int count){
+
+		String out = "";
+
+		boolean find = false;
+
+		for(int i = 0; i<habitats.length; i++){
+			for(int j = 0; j<habitats.length; j++){
+				if(habitats[i][j].getHabitatidentifier().equals(habitatIdentifier+count)){
+					out = "Information: "+habitats[i][j].showHabitat();
+				}
+			}
+		}
+
+		return out;
+
+	}
+
+	public String showNurseryStatistics(){
+
+		String out = "";
+
+		double percentageCat = (numCats * 100)/9;
+		double percentageDog = (numDogs * 100)/9;
+		double percentageReptil = (numReptils * 100)/4;
+		double percentageRabbits = (numRabbits * 100)/4;
+		double percentageBirds = (numBirds * 100)/4;
+
+		double percentageTotal = (totalPets * 100)/30;
+
+		double percentageHealthy = (healthyPets * 100)/30;
+
+		double percentageSick = (sickPets * 100)/30;
+
+		out = "The percentage of occupancy in the cat area is: "+percentageCat;
+
+		out += "\nThe percentage of occupancy in the dog area is: "+percentageDog;
+
+		out += "\nThe percentage of occupancy in the reptil area is: "+percentageReptil;
+
+		out += "\nThe percentage of occupancy in the rabbit area is: "+percentageRabbits;
+
+		out += "\nThe percentage of occupancy in the bird area is: "+percentageBirds;
+
+		out += "\nThe percentage of healthy pets is: "+percentageHealthy;
+
+		out += "\nThe percentage of sick pets is: "+percentageSick;
+
+		out += "\nThe total percentage of pets in the nursery is: "+percentageTotal;
+
+		return out;
+
+
+
+
+	}
+
 		
 
 }

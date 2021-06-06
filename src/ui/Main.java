@@ -166,7 +166,9 @@ public class Main{
 	 			+"\n0. Back to main menu" 
 	 			+"\n1. Add pet to the nursery"
 	 			+"\n2. Find a pet in the nursery"
-	 			+"\n3. Print nursery map");
+	 			+"\n3. Print nursery map"
+	 			+"\n4. Show habitat information"
+	 			+"\n5. Show nursery statistics");
 
 	 		System.out.print("Choose an option: ");
 	 		option = reader.nextInt();
@@ -186,6 +188,12 @@ public class Main{
 					break;
 				case 3:
 					printMap();
+					break;
+				case 4:
+					showHabitatInformation();
+					break;
+				case 5:
+					showNurseryStatistics();
 					break;
 	 		}
 
@@ -480,8 +488,6 @@ public class Main{
 	  * 
 	  * 
 	 */
-
-
 	 public void addPetToNursery(){
 
 	 	String answer = "";
@@ -549,6 +555,34 @@ public class Main{
 
 	 	System.out.println(out);
 
+	 }
+
+	 public void showHabitatInformation(){
+
+	 	String answer = "";
+
+	 	int count = 0;
+
+	 	System.out.println("Letters Zones: \nCats:G \nDogs:D \nReptil:R \nRabbits: C \nBirds: B");
+
+	 	System.out.print("Please enter the letter of the habitat you want to consult: ");
+	 	String habitatIdentifier = reader.nextLine();
+	 	System.out.print(("Please enter the number of the habitat you want consult: "));
+	 	count = reader.nextInt();
+	 	reader.nextLine();
+
+	 	
+
+	 	answer = center.showHabitatInformation(habitatIdentifier, count);
+	 }
+
+	 public void showNurseryStatistics(){
+
+	 	String answer = center.showNurseryStatistics();
+
+	 	System.out.println(answer);
+
+	 	
 	 }
 
 	
