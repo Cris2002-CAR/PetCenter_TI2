@@ -15,8 +15,13 @@ public class RabbitArea extends PetHabitats{
 	////////////Constructor
 
 	/**
-	*
-	*
+	 * Rabbit area construction method for creating rabbit living spaces
+	 * Initializes attributes by parameters
+ 	 * @param habitatIdentifier type String
+	 * @param hLength type String
+	 * @param width type String
+	 * @param plantType type String
+	 * @param plantsNumber type String
 	*/
 	public RabbitArea(String habitatIdentifier, String hLength, String width, 
 		String plantType, String plantsNumber){
@@ -27,6 +32,7 @@ public class RabbitArea extends PetHabitats{
 	}
 
 	//////////////Gets
+
 	public String getPlantsNumber(){
 		return plantsNumber;
 	}
@@ -36,6 +42,7 @@ public class RabbitArea extends PetHabitats{
 	}
 
 	////////////Sets
+
 	public void setPlantsNumber(String plantsNumber){
 		this.plantsNumber = plantsNumber;
 	}

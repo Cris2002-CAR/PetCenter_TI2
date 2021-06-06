@@ -22,10 +22,15 @@ public class BirdArea extends PetHabitats{
 	///////////////Constructor
 
 	/**
-	*
-	*
+	 * Bird area construction method for creating bird living spaces
+	 * Initializes attributes by parameters
+ 	 * @param habitatIdentifier type String
+	 * @param hLength type String
+	 * @param width type String
+	 * @param height type String
+	 * @param maximumBirds type String
+	 * @param cage type CageType
 	*/
-
 	public BirdArea(String habitatIdentifier, String hLength, String width, 
 		String height, String maximumBirds, CageType cage){
 
@@ -50,6 +55,7 @@ public class BirdArea extends PetHabitats{
 	}
 
 	/////////////Sets
+
 	public void setHeight(String height){
 		this.height = height;
 	}

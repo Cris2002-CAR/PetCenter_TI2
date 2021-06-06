@@ -14,11 +14,16 @@ public class ReptileArea extends PetHabitats{
 	private AquariumType aquarium;
 
 	/////////////Constructos
+	
 	/**
-	*
-	*
+	 * Reptil area construction method for creating reptil living spaces
+	 * Initializes attributes by parameters
+ 	 * @param habitatIdentifier type String
+	 * @param hLength type String
+	 * @param width type String
+	 * @param aquariumMaterial type String
+	 * @param aquarium type AquariumType
 	*/
-
 	public ReptileArea(String habitatIdentifier, String hLength, String width, 
 		 String aquariumMaterial, AquariumType aquarium){
 
@@ -29,18 +34,22 @@ public class ReptileArea extends PetHabitats{
 	}
 
 	///////////////////gets
+
 	public String getAquariumMaterial(){
 		return aquariumMaterial;
 	}
 
+	
 	public AquariumType getAquarium(){
 		return aquarium;
 	}
 
 	/////////////Sets
+
 	public void setAquariumMaterial(String aquariumMaterial){
 		this.aquariumMaterial = aquariumMaterial;
 	}
+
 
 	public void setAquarium(AquariumType aquarium){
 		this.aquarium = aquarium;

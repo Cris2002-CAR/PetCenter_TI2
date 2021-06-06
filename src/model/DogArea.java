@@ -10,8 +10,12 @@ public class DogArea extends PetHabitats{
 	///////////Constructor
 
 	/**
-	*
-	*
+	 * Dog area construction method for creating dog living spaces
+	 * Initializes attributes by parameters
+ 	 * @param habitatIdentifier type String
+	 * @param hLength type String
+	 * @param width type String
+	 * @param toyNumbers type int
 	*/
 	public DogArea( String habitatIdentifier, String hLength, String width, 
 		int toyNumbers){
@@ -20,12 +24,14 @@ public class DogArea extends PetHabitats{
 		this.toyNumbers = toyNumbers;
 	}
 
-	///////////Get
+	////////////////////////gets
+
 	public int getToysNumbers(){
 		return toyNumbers;
 	}
 
-	/////////Set
+	////////////////////////Sets
+	
 	public void setToysNumbers(int toyNumbers){
 		this.toyNumbers = toyNumbers;
 	}

@@ -34,50 +34,169 @@ public class PetCenter{
 	*/
 	private Pet[] pets;
 
-	//////////////////////////EXTENDS TI3 attributes
+	/////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////EXTENDS TI3 attributes
 
+
+   	/**
+   	ArrayList with hospitalized animals 
+   	*/
 	private ArrayList <Pet> listHpets;
 
+	/**
+   	Counter for the number of cats in the nursery 
+   	*/
 	public double numCats;
+	
+	/**
+   	Counter for the number of dogs in the nursery 
+   	*/
 	public double numDogs;
+	
+	/**
+   	Counter for the number of reptils in the nursery 
+   	*/
 	public double numReptils;
+
+	/**
+   	Counter for the number of rabbits in the nursery 
+   	*/
 	public double numRabbits;
+
+	/**
+   	Counter for the number of birds in the nursery 
+   	*/
 	public double numBirds;
 
+	/**
+	Counter for the number of healthy pets in the day care center 
+	*/ 
 	public double healthyPets;
+
+	/**
+   	Counter for the number of sick pets in the day care center 
+   	*/
 	public double sickPets;
 
+	/**
+   	counter for all pets 
+   	*/
 	public double totalPets;
 
 
 	////////////////////Constants for limits
+
+	////////////////////////////Cat limits
+	/**
+   	Constant with minimum row limit in the cat area
+   	*/
 	private final int MIN_CATROW = 0;
+
+	/**
+   	Constant with the maximum limit of rows in the cat area 
+   	*/
 	private final int MAX_CATROW = 2;
+
+	/**
+   	Constant with the minimum column limit in the cat area
+   	*/
 	private final int MIN_CATCOL = 0;
+
+	/**
+   	Constant with the maximun column limit in the cat area 
+   	*/
 	private final int MAX_CATCOL = 2;
 
+	///////////////////////////Dogs limits
+	/**
+   	Constant with minimum row limit in the dog area
+   	*/
 	private final int MIN_DOGROW = 3;
+
+	/**
+   	Constant with the maximum limit of rows in the dog area 
+   	*/
 	private final int MAX_DOGROW = 5;
+
+	/**
+   	Constant with the minimum column limit in the dog area 
+   	*/
 	private final int MIN_DOGCOL = 0;
+
+	/**
+   	Constant with the maximun column limit in the dog area 
+   	*/
 	private final int MAX_DOGCOL = 2;
 
+	////////////////////////////////reptil limits
+	/**
+   	Constant with minimum row limit in the reptil area 
+   	*/
 	private final int MIN_REPTILROW = 0;
+
+	/**
+   	Constant with the maximum limit of rows in the reptil area 
+   	*/
 	private final int MAX_REPTILROW = 1;
+
+	/**
+   	Constant with the minimum column limit in the reptil area 
+   	*/
 	private final int MIN_REPTILCOL = 3;
+
+	/**
+   	Constant with the maximun column limit in the reptil area 
+   	*/
 	private final int MAX_REPTILCOL = 4;
 
+    //////////////////////////Rabbit limits
+	/**
+   	Constant with minimum row limit in the rabbit area 
+   	*/
 	private final int MIN_RABBITROW = 2;
+
+	/**
+   	Constant with the maximum limit of rows in the rabbit area
+   	*/
 	private final int MAX_RABBITROW = 3;
+
+	/**
+   	Constant with the minimum column limit in the rabbit area
+   	*/
 	private final int MIN_RABBITCOL = 3;
+
+	/**
+   	Constant with the maximun column limit in the rabbit area
+   	*/
 	private final int MAX_RABBITCOL = 4;
 
+	///////////////////////////Bird limits
+	/**
+   	Constant with minimum row limit in the bird area 
+   	*/
 	private final int MIN_BIRDROW = 4;
+
+	/**
+   	Constant with the maximum limit of rows in the bird area
+   	*/
 	private final int MAX_BIRDROW = 5;
+
+	/**
+   	Constant with the minimum column limit in the bird area 
+   	*/
 	private final int MIN_BIRDCOL = 3;
+
+	/**
+   	Constant with the maximum column limit in the bird area 
+   	*/
 	private final int MAX_BIRDCOL = 4;
 
 	////////////////////////// MATRIX
 
+	/**
+   	Habitat matrix for each pet 
+   	*/
 	private PetHabitats[][] habitats;
 
 	///////////////////////Method Constructs
@@ -606,8 +725,15 @@ public class PetCenter{
 		pets = new Pet[MAX_ATTENDED_PETS];
 	}
 
-	////////////////EXTENS TI3 Methods
+	///////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////EXTENS TI3 Methods
 
+	/**
+	 * This method takes care of sending a hospitalized pet to the day care center.
+	 * pre:The habitat matrix is initialized, all counter variables are initialized.
+	 * pos:In case there is space, the pet will stay in the first habitat that has a null pet.
+	 * @return; returns a message indicating whether or not the pet entered the day care center
+	*/ 
 	public String hopitalizationPet(){
 
 		String out = "";
@@ -715,6 +841,20 @@ public class PetCenter{
 		return out;
 	}
 
+	/**
+	 *This method is responsible for entering a pet into the day care. 
+	 * pre: The habitats and counter variables are initialized.
+	 * pos: The pet remains in the first habitat with pet null and that is in the limits according to its species.
+	 * @param specie A string with the pet's species
+	 * @param name A string with the pet's name
+	 * @param age A string with the pet's age
+	 * @param race A string with the pet's race
+	 * @param nameOwn A string with the pet owner's name on it
+	 * @param idOwn A string with the pet owner's id on it
+	 * @param phoneOwn A string with the pet owner's phone on it
+	 * @param addreessOwn A String with the pet owner's name on it
+	 * @return A string indicating whether or not the pet was able to enter the nursery.
+	*/
 	public String addPetToNursery(String specie, String name, String age, String race, String nameOwn, String idOwn, 
 		String phoneOwn, String addressOwn){
 
@@ -807,7 +947,10 @@ public class PetCenter{
 		}
 		return out;
 	}
-	
+
+	/**
+	 *This method initializes all habitats with default values. 
+	*/
 	public void setUpHabitats(){
 		setUpCat();
 		setUpDog();
@@ -817,6 +960,10 @@ public class PetCenter{
 		
 	}
 	
+	/**
+	 *This method initializes the cat zone according to its limits.
+	 * Global constants are used to initialize the zone 
+	*/
 	public void setUpCat(){
 
 		int catCount = 1;
@@ -830,6 +977,10 @@ public class PetCenter{
 		}
 	}
 
+	/**
+	 *This method initializes the dog zone according to its limits.
+	 * Global constants are used to initialize the zone 
+	*/
 	public void setUpDog(){
 
 		int dogCount = 1;
@@ -842,6 +993,10 @@ public class PetCenter{
 		}
 	}
 
+	/**
+	 *This method initializes the reptil zone according to its limits.
+	 * Global constants are used to initialize the zone 
+	*/
 	public void setUpReptil(){
 
 		int reptilCount = 1;
@@ -854,6 +1009,10 @@ public class PetCenter{
 		}
 	}
 
+	/**
+	 *This method initializes the rabbit zone according to its limits.
+	 * Global constants are used to initialize the zone 
+	*/
 	public void setUpRabbit(){
 
 		int rabbitCount = 1;
@@ -866,6 +1025,10 @@ public class PetCenter{
 		}
 	}
 
+	/**
+	 *This method initializes the bird zone according to its limits.
+	 * Global constants are used to initialize the zone 
+	*/
 	public void setUpBird(){
 
 		int birdCount = 1;
@@ -879,7 +1042,10 @@ public class PetCenter{
 	}
 
 
-	
+	/**
+	 *This method shows whether a pet is in the nursery and in which habitat it is located. 
+	 * @return Displays a message informing whether or not the pet is in day care. 
+	*/
 	public String findPetInNursery(String name){
 
 		String out = "";
@@ -900,6 +1066,10 @@ public class PetCenter{
 			
 	}
 
+	/**
+	 * This method stores in an arraylist the habitat of the pets that have the name entered by the user.
+	 * @return the habitats in which the pets are kept.
+	*/
 	public ArrayList<PetHabitats> findHabitats(String name){
 
 		ArrayList<PetHabitats> habitat = new ArrayList<PetHabitats>();
@@ -916,7 +1086,10 @@ public class PetCenter{
 		return habitat;				
 	}
 
-	
+	/**
+	 *This method paints the entire nursery 
+	 * pre: The habitats matrix is initialized 
+	*/
 	public void printMap(){
 
 		String out = "";
@@ -931,6 +1104,11 @@ public class PetCenter{
 		}
 	}
 
+	/**
+	 * This method is responsible for displaying the information of a habitat.
+	 * pre: the habitats matrix is initialized
+	 * @return habitat information
+	*/ 
 	public String showHabitatInformation(String habitatIdentifier,int count){
 
 		String out = "";
@@ -948,6 +1126,12 @@ public class PetCenter{
 		return out;
 
 	}
+
+	/**
+	 * This method calculates and displays nursery statistics.
+	 * pre: The counter variables are initialized
+	 * @return all nursery statistics
+	*/
 
 	public String showNurseryStatistics(){
 
@@ -982,10 +1166,6 @@ public class PetCenter{
 		out += "\nThe total percentage of pets in the nursery is: "+percentageTotal;
 
 		return out;
-
-
-
-
 	}
 
 		

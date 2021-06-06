@@ -15,8 +15,13 @@ public class CatArea extends PetHabitats{
 	///////////////Constructor
 
 	/**
-	*Cat area construction method for creating cat living spaces
-	*
+	* Cat area construction method for creating cat living spaces
+	* Initializes attributes by parameters
+	* @param habitatIdentifier type String
+	* @param hLength type String
+	* @param width type String
+	* @param height type String
+	* @param maximumWeight type String
 	*/
 	public CatArea(String habitatIdentifier, String hLength, String width, 
 		 String height, String maximumWeight){
@@ -28,9 +33,11 @@ public class CatArea extends PetHabitats{
 
 	//////////////Gets
 
+
 	public String getHeight(){
 		return height;
 	}
+
 
 	public String getMaximumWeight(){
 		return maximumWeight;

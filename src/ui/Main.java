@@ -484,9 +484,8 @@ public class Main{
 	 ///////////////////////////////////////////EXTENS TI3
 
 	 /**
-	  * 
-	  * 
-	  * 
+	  * This method adds a pet to a habitat. 
+	  * Use the relationship center to send the pet data to the method that will make the habitat. 
 	 */
 	 public void addPetToNursery(){
 
@@ -526,7 +525,9 @@ public class Main{
 	 	System.out.println(answer);
 	 }
 
-	 
+	 /**
+	  *The method, given the pet's name, searches the habitat and its information. 
+	 */
 	 public void findPetInNursery(){
 
 	 	String answer = "";
@@ -541,11 +542,17 @@ public class Main{
 	 	System.out.println();
 	 }
 	 
-
+	 /**
+	  *This method paints the map of the nursery. 
+	 */
 	 public void printMap(){
 
 	 	center.printMap();
 	 }
+
+	 /**
+	  * This method sends a hospitalized pet to day care.
+	 */
 
 	 public void hopitalizationPet(){
 
@@ -557,6 +564,9 @@ public class Main{
 
 	 }
 
+	 /**
+	  *This method shows the information of a habitat. 
+	 */
 	 public void showHabitatInformation(){
 
 	 	String answer = "";
@@ -571,10 +581,12 @@ public class Main{
 	 	count = reader.nextInt();
 	 	reader.nextLine();
 
-	 	
-
 	 	answer = center.showHabitatInformation(habitatIdentifier, count);
 	 }
+
+	 /**
+	  *This method displays the nursery statistics  
+	 */ 
 
 	 public void showNurseryStatistics(){
 

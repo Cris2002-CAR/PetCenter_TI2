@@ -77,6 +77,15 @@ public class Pet{
 		
 	}
 
+	/**
+	 *Constructor method to create an object of type Pet
+	 *Global variables are initialized
+	 *@param specie type String
+	 *@param name type String
+	 *@param age type String
+	 *@param race type String
+	 *@param owner type Owner
+	*/
 	public Pet(String specie, String name, String age, String race, Owner owner){
 
 		this.specie = specie;
