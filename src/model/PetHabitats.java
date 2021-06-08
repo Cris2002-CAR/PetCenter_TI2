@@ -152,13 +152,28 @@ public abstract class PetHabitats{
 		return out;
 	}
 
+	/**
+	 * Show habitat's information 
+	 * @return  the information of the habitat and it's pet
+	*/
 	public String showHabitat(){
 
 		String out = "";
 
 		if(habitatStatus == HabitatStatus.V){
 
-			out = "Habitat: "+habitatIdentifier+"\nLength: "+"\nWidth: "+width;
+			out = "\nHabitat: "+habitatIdentifier+"\nLength: "+hLength+"\nWidth: "+width+ "\nStatus: Empty";
+		}
+		else {
+			out = "\nHabitat: "+habitatIdentifier+"\nLength: "+hLength+"\nWidth: "+width+ "\nStatus: Occupied";
+			out += "\n\n Pet Information : "+"\nSpecie: "+pet.getSpecie()+"\nName: "+pet.getName()+"\nAge: "+pet.getAge()+"\nRace: "+pet.getRace();
+		}
+
+		if(habitatStatus == (HabitatStatus.E) && habitatStatus != HabitatStatus.V){
+			out += "\nThe pet is sick";
+		}
+		else if(habitatStatus == (HabitatStatus.S) && habitatStatus != HabitatStatus.V){
+			out += "\nThe pet is healthy";
 		}
 
 		return out;

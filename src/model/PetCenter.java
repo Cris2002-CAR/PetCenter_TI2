@@ -1115,16 +1115,16 @@ public class PetCenter{
 
 		boolean find = false;
 
-		for(int i = 0; i<habitats.length; i++){
-			for(int j = 0; j<habitats.length; j++){
+		for(int i = 0; i<habitats.length && !find; i++){
+			for(int j = 0; j<habitats[0].length  && !find; j++){
 				if(habitats[i][j].getHabitatidentifier().equals(habitatIdentifier+count)){
-					out = "Information: "+habitats[i][j].showHabitat();
+					out = "\n Habitat Information: "+habitats[i][j].showHabitat();
+					find = true;
 				}
 			}
 		}
 
 		return out;
-
 	}
 
 	/**
@@ -1132,7 +1132,6 @@ public class PetCenter{
 	 * pre: The counter variables are initialized
 	 * @return all nursery statistics
 	*/
-
 	public String showNurseryStatistics(){
 
 		String out = "";

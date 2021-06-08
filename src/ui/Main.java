@@ -50,8 +50,8 @@ public class Main{
 
 	 public void mainMenu(){
 
+	 	System.out.println("___________________________________________________________________________");
 	 	int option = 0;
-
 
 		System.out.println("  MAIN MENU  "
  			+"\n1. Veterinary emergencies"
@@ -87,6 +87,7 @@ public class Main{
 	 */
 	 public void menu1(){
 
+	 	System.out.println("___________________________________________________________________________");
 	 	int option=0;
 	 	int menuOption = 1;
 	 	
@@ -144,6 +145,7 @@ public class Main{
 	 			break;
 
 	 			case 8:
+	 				System.out.println("___________________________________________________________________________");
 	 				hopitalizationPet();
 	 				break;
 
@@ -158,10 +160,12 @@ public class Main{
 
 	 public void petNurseryMenu(){
 
+	 	System.out.println("___________________________________________________________________________");
 	 	int option = 0;
 	 	int menuOption = 1;
 	 	
 	 	while(menuOption != 0){
+	 		
 	 		System.out.println("  \nPET NURSERY MENU  "  
 	 			+"\n0. Back to main menu" 
 	 			+"\n1. Add pet to the nursery"
@@ -181,18 +185,23 @@ public class Main{
 	 				menuOption = 0;
 	 				break;
  				case 1:
+ 					System.out.println("___________________________________________________________________________");
  					addPetToNursery();
  					break;
 				case 2:
+					System.out.println("___________________________________________________________________________");
 					findPetInNursery();
 					break;
 				case 3:
+					System.out.println("___________________________________________________________________________");
 					printMap();
 					break;
 				case 4:
+					System.out.println("___________________________________________________________________________");
 					showHabitatInformation();
 					break;
 				case 5:
+					System.out.println("___________________________________________________________________________");
 					showNurseryStatistics();
 					break;
 	 		}
@@ -582,6 +591,8 @@ public class Main{
 	 	reader.nextLine();
 
 	 	answer = center.showHabitatInformation(habitatIdentifier, count);
+
+	 	System.out.println(answer);
 	 }
 
 	 /**
